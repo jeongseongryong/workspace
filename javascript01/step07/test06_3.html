@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+
+</head>
+<body>
+
+
+<button id=btn1 type="button" onclick="console.log('zzzz')">버튼1</button>
+
+
+<script>
+/* 먼저등록된 순서대로 호출됨 */
+var btn1 = document.querySelector("#btn1")
+
+btn1.addEventListener('click', function() {
+  console.log('1111')
+})
+
+ btn1.onclick = function() {
+  console.log('xxxx')
+}
+btn1.addEventListener('click', function() {
+  console.log('2222')
+})
+
+btn1.addEventListener('click', function() {
+  console.log('3333')
+})
+
+btn1.addEventListener('click', function() {
+  console.log('4444')
+})
+
+
+
+</script>
+
+</body>
+</html>

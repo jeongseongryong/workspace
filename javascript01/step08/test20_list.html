@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <style>
+  .container {
+    width: 600px;
+    margin: 0px auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+  <table id="student-tbl" class="table table-hover">
+    <thead>
+    <tr>
+      <th>번호</th>
+      <th>이름</th>
+      <th>전화</th>
+      <th>이메일</th>
+      <th>재직여부</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<button type="button" class="btn btn-primary" id="add-btn">추가</button>
+</div>
+<script>"test08j.js"</script>
+<script>
+"use strict"
+
+    var tbody = $('#student-tbl > tbody'),
+        addBtn = $('#add-btn');
+
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState < 4)
+        return
+        var result = JSON.parse(xhr.responseText)
+
+      if(result.status != 'success') {
+          alert('데이터를 가져오는데 실패했습니다')
+        return
+      }
+        var list = result.data.list
+        for (var s of list) {
+
+        $("<tr>").html("<td>" + s.memberNo +
+                  "</td><td><a href='#' data-no= class='view-link'>" + s.name +
+                  "</td><td>" + s.tel +
+                  "</td><td>" + s.email +
+                  "</td><td>" + (s.working ? "재직중" : "실업") + "</td>")
+                  appendTo(tobody)
+      }
+      $('table .view-link').click(onClickViewLink;)
+      }
+
+    }
+    xhr.open('get', 'http://localhost:8080/webapp/student/list.json?pageNo=1&pageSize=8', true)
+    xhr.send()
+     function onClickViewLink(event) {
+
+       local.href = 'test08_view.html?no=' + this.getAttribute('data-no')
+       event.preventDefault()
+     }
+
+     addBtn.onclick = function() {
+       location.href = 'test08_view.html'
+     }
+
+
+</script>
+
+</body>
+</html>

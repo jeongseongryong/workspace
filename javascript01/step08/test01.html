@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <style>
+  body {
+    background-color: gray;
+  }
+  body > div {
+    border: 1px solid red;
+    min-height: 300px;
+  }
+  </style>
+</head>
+<body>
+  <button id="btn1" type="button">버튼1</button><br>
+  <textarea id="ta" rows="20" cols="80"></textarea>
+
+<script>
+
+  var btn1 = document.querySelector('#btn1')
+  var ta = document.querySelector('#ta')
+
+
+  btn1.addEventListener('click', function(event) {
+
+    var xhr = new XMLHttpRequest()
+
+    xhr.open('get', 'http://localhost:8080/webapp/student/list.json', false)
+
+    xhr.send()
+/*
+    console.log(xhr.responseText)
+*/
+    ta.value = xhr.responseText
+})
+
+
+
+
+
+</script>
+
+</body>
+</html>

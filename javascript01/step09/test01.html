@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+
+</head>
+<body>
+
+<script>
+
+var v1 = 100;
+window.v2 = 200;
+function f1() {console.log('f1()....호출됨')}
+window.f2 = function () {
+  console.log('f2()....호출됨')
+}
+
+console.log(window.v1, window.v2)
+console.log(v1, v2)
+
+f1();
+window.f1();
+f2();
+window.f2();
+
+console.log('---------------------')
+console.log(window.document)
+console.log('---------------------')
+console.log(window.navigator)
+console.log('---------------------')
+console.log(window.screen)
+console.log(screen.width)
+console.log(screen.height)
+console.log('---------------------')
+console.log(window.location)
+/*location.href ='http://www.fb.com'*/
+console.log('---------------------')
+console.log(window.history)
+
+</script>
+
+</body>
+</html>

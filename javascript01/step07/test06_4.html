@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+
+</head>
+<body>
+
+
+<button id="btn1" type="button">버튼1</button>
+<button id="btn2" type="button">버튼2</button>
+
+<script>
+
+var btn1 = document.querySelector("#btn1")
+var btn2 = document.querySelector("#btn2")
+
+var btn1Click = function() {
+    console.log('1111')
+}
+btn1.addEventListener('click', btn1Click)
+
+btn2.onclick = function() {
+    console.log('2222')
+    btn1.removeEventListener('click', btn1Click)
+}
+
+
+</script>
+
+</body>
+</html>

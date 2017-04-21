@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+
+</head>
+<body>
+
+
+<button id=btn1 type="button">버튼1</button>
+<button id=btn2 type="button">버튼2</button>
+<button id=btn3 type="button" onclick="console.log('버튼3 클릭했음');
+console.log('오호라');
+ var e = document.querySelector('#p1');
+  e.innerHTML='okok'">버튼3</button>
+<button id=btn4 type="button" onclick="clickBtn4()">버튼4</button>
+<p id="p1"></p>
+
+<script>
+
+var btn1 = document.querySelector("#btn1")
+var btn2 = document.querySelector("#btn2")
+
+
+btn1.addEventListener('click', function() {
+  console.log('버튼1 클릭했음')
+})
+
+btn2.onclick = function() {
+  console.log('버튼2 클릭했음')
+}
+
+function clickBtn4() {
+  console.log('버튼4 클릭했음');
+  console.log('오호라');
+   var e = document.querySelector('#p1');
+    e.innerHTML='nono'
+}
+
+</script>
+
+</body>
+</html>

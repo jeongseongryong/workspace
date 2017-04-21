@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+
+</head>
+<body>
+<p id="p1"></p>
+<a id="btn1" href="http://www.naver.com">버튼1</a>
+<a id="btn2" href="http://www.naver.com">버튼2</a>
+<a id="btn3" href="http://www.naver.com" onclick="f1(event); return false;">버튼3</a>
+<a id="btn4" href="http://www.naver.com" onclick="return f2(event)">버튼4</a>
+
+<script>
+var p1 = document.querySelector('#p1')
+var btn1 = document.querySelector('#btn1')
+var btn2 = document.querySelector('#btn2')
+
+
+
+
+btn1.addEventListener('click', function(event) {
+  p1.textContent = this.textContent
+})
+
+
+btn2.addEventListener('click', function(event) {
+ p1.innerHTML = this.textContent
+
+ event.preventDefault()
+})
+
+function f1 () {
+  p1.innerHTML = event.target.textContent
+}
+
+function f2 () {
+  p1.innerHTML = event.target.textContent
+  return false
+}
+
+btn3.onclick = function(event) {
+ p1.innerHTML = this.textContent
+
+ return false;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <style>
+
+div {
+  padding: 5px;
+}
+
+#email {
+  padding-right: 20px;
+  background: no-repeat right top;
+  background-size: 16px;
+}
+  </style>
+</head>
+
+<body>
+
+<form>
+<div>이메일<input id="email" type="text"></div>
+<div>암호<input id="pwd" type="password"></div>
+<div><button id="signupBtn" type="button">회원가입</button></div>
+</form>
+
+<script>
+var email = document.getElementById('email');
+var btn = document.getElementById('signupBtn');
+
+btn.addEventListener('click', function() {
+  if(email.value == "hong@test.com") {
+    email.style["background-image"] = "url('no.jpg')";
+  } else {
+    email.style["background-image"] = "url('ok.png')";
+  }
+});
+</script>
+
+
+</body>
+</html>
