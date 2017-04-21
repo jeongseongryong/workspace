@@ -9,7 +9,8 @@ var fiNo = $('#fi-no'),
     fiName = $('#fi-name'),
     fiTel = $('#fi-tel'),
     fiHmpg = $('#fi-hmpg'),
-    fiFcbk = $('#fi-fcbk');
+    fiFcbk = $('#fi-fcbk'),
+    fiPassword =$('#fi-password');
 
 
 if (location.search == "") {
@@ -23,7 +24,8 @@ if (location.search == "") {
         tel: fiTel.val(),
         email: fiEmail.val(),
         hmpg: fiHmpg.val(),
-        fcbk: fiFcbk.val()
+        fcbk: fiFcbk.val(),
+        password: fiPassword.val()
       },
       function() {
             location.href = 'index.html'
@@ -48,6 +50,7 @@ if (location.search == "") {
       fiTel.val(teacher.tel)
       fiHmpg.val(teacher.hmpg)
       fiFcbk.val(teacher.fcbk)
+      fiPassword.val(teacher.password)
 
     },
     function(error) {

@@ -6,13 +6,14 @@ module.exports = {
   },
 /*
 
+
 select m.mno, m.name, m.tel, m.email, t.hmpg
 from tcher t inner join memb m on t.tno=m.mno
 order by m.name asc
 */
   selectList(pageNo, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, t.hmpg \
+      'select m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk \
       from tcher t inner join memb m on t.tno=m.mno  \
       order by m.name asc \
        limit ?, ?',

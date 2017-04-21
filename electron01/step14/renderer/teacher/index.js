@@ -11,7 +11,7 @@ var remote = electron.remote
 
 var studentService =  remote.getGlobal('studentService')
 */
-var tbody = $('#student-tbl > tbody')
+var tbody = $('#teacher-tbl > tbody')
 
 displayList(1)
 
