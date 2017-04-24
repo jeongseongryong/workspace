@@ -1,16 +1,9 @@
 "use strict"
+window.$ = window.jQuery = require('jquery')
 
-window.$ = window.jquery = require('jquery')
+var teacherService = require('electron').remote.getGlobal('teacherService')
 
-var teacherService =require('electron').remote.getGlobal('teacherService')
-/*
-// electron 관리자 객체 얻기
-var electron = require ('electron')
-//
-var remote = electron.remote
 
-var studentService =  remote.getGlobal('studentService')
-*/
 var tbody = $('#teacher-tbl > tbody')
 
 displayList(1)
@@ -28,37 +21,34 @@ $('#next-btn').click(function() {
   var currPageNo = parseInt($('#page-no').text())
   displayList(currPageNo + 1)
 })
+
 function displayList(pageNo) {
   teacherService.list(
     pageNo,
-    function (results, totalCount) {
-      console.log(results)
-
+    function(results, totalCount) {
       tbody.html('');
-
       for (var i = 0; i < 3; i++) {
         if (i < results.length) {
-          let t = results[i]
-          $("<tr>").html("<td>" + t.mno +
-          "</td><td><a href='#' data-no='" + t.mno + "' class='view-link'>" + t.name +
-          "</a></td><td>" + t.email +
-          "</td><td>" + t.tel +
-          "</td><td>" + t.hmpg +
-          "</td><td>" + t.fcbk + "</td>")
+          let r = results[i]
+          $("<tr>").html("<td>" + r.mno +
+          "</td><td><a href='#' data-no='" + r.mno + "' class='view-link'>" + r.name +
+          "</a></td><td>" + r.tel +
+          "</td><td>" + r.email +
+          "</td><td>" + ((r.hmpg != null) ? r.hmpg : '') + "</td>")
           .appendTo(tbody)
         } else {
           $("<tr><td colspan='5'>&nbsp;</td></tr>").appendTo(tbody)
         }
       }
-      $('table .view-link').click(onClickViewLink);
 
-       preparePagingBar(pageNo, totalCount)
+      $('table .view-link').click(onClickViewLink)
+      preparePagingBar(pageNo, totalCount)
 
     },
     function(error) {
       alert('데이터 조회 중 오류 발생!')
       throw error;
-}) //listStudent()
+  }) //list()
 } // displayList()
 
 function preparePagingBar(pageNo, totalCount) {
@@ -70,17 +60,14 @@ function preparePagingBar(pageNo, totalCount) {
     $('#prev-btn').attr('disabled', false)
   }
 
+  var totalPage = parseInt(totalCount / 3) + (totalCount % 3 > 0 ? 1 : 0);
 
-  var totalPage = parseInt(totalCount / 3) + (totalCount % 3 > 0 ? 1: 0);
-
-  if(pageNo == totalPage) {
+  if (pageNo == totalPage) {
     $('#next-btn').attr('disabled', true)
   } else {
     $('#next-btn').attr('disabled', false)
-    }
-}
-
-
+  }
+} //preparePagingBar()
 
 function onClickViewLink(event) {
   location.href = 'view.html?no=' + $(this).attr('data-no')

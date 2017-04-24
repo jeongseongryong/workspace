@@ -1,7 +1,6 @@
 "use strict"
-
 window.$ = window.jQuery = require('jquery')
-var studentService =require('electron').remote.getGlobal('studentService')
+var studentService = require('electron').remote.getGlobal('studentService')
 
 
 var fiNo = $('#fi-no'),
@@ -22,15 +21,15 @@ if (location.search == "") {
         tel: fiTel.val(),
         email: fiEmail.val(),
         password: '1111',
-        working:(fiWorking.prop('checked') ? 'Y' : 'N'),
+        working: (fiWorking.prop('checked') ? 'Y' : 'N'),
         schoolName: fiSchoolName.val()
       },
       function() {
-            location.href = 'index.html'
-          },
-          function(error) {
-            alert('학생 데이터 등록 중 오류 발생!')
-            throw error;
+        location.href = 'index.html'
+      },
+      function(error) {
+        alert('회원 등록 중 오류 발생!')
+        throw error;
     }) //insertMember()
   }) // click()
 
@@ -38,8 +37,7 @@ if (location.search == "") {
   $('.bit-new').css('display', 'none')
   var no = location.search.substring(1).split('=')[1]
 
-  studentService.detail(
-    no,
+  studentService.detail(no,
     function(result) {
       var student = result
       fiNo.text(student.mno)
@@ -61,32 +59,29 @@ if (location.search == "") {
         "name": fiName.val(),
         "tel": fiTel.val(),
         "email": fiEmail.val(),
+        "password": '1111',
         "working": (fiWorking.prop('checked') ? 'Y' : 'N'),
         "schoolName": fiSchoolName.val()
       },
-          function(result) {
-            alert('변경하였습니다.')
-          },
-
+      function(result) {
+        alert('변경하였습니다.')
+      },
       function(error) {
         alert('회원 기본 데이터 변경 중 오류 발생!')
         throw error;
-    })
-  }) // click()
-
+    })//update()
+  }) //click()
 
   $('#del-btn').click(function() {
     studentService.delete(no,
-     function(result) {
-        alert('삭제 하였습니다.')
-          location.href = 'index.html'
-        },
-          function(error) {
-              alert('학생 기본 데이터 삭제 중 오류 발생!')
-              throw error;
-      })
+      function(result) {
+        location.href = 'index.html'
+      },
+      function(error) {
+        alert('학생 기본 데이터 삭제 중 오류 발생!')
+        throw error;
+    })
   }) // click()
-
 } // else
 
 $('#lst-btn').click(function() {

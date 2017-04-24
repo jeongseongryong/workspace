@@ -1,10 +1,9 @@
-<!-- AJAX 사용법 -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>HTML</title>
-  <link rel="stylesheet"href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <style>
   .container {
     width: 600px;
@@ -22,11 +21,6 @@
       <p class="form-control-static" id="fi-no"></p>
     </div>
   </div>
-  <div class="form-group">
-    <label for="fi-email" class="col-sm-2 control-label">이메일</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="fi-email" placeholder="이메일">
-    </div>
   </div>
   <div class="form-group">
     <label for="fi-name" class="col-sm-2 control-label">이름</label>
@@ -35,27 +29,38 @@
     </div>
   </div>
   <div class="form-group">
+    <label for="fi-email" class="col-sm-2 control-label">이메일</label>
+    <div class="col-sm-7">
+      <input type="email" class="form-control" id="fi-email" placeholder="이메일">
+    </div>
+  <div class="form-group">
     <label for="fi-tel" class="col-sm-2 control-label">전화번호</label>
     <div class="col-sm-4">
       <input type="text" class="form-control" id="fi-tel" placeholder="전화번호">
     </div>
   </div>
   <div class="form-group">
-    <label for="fi-hmpg" class="col-sm-2 control-label">홈페이지</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="fi-hmpg" placeholder="홈페이지">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="fi-fcbk" class="col-sm-2 control-label">페이스북</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="fi-fcbk" placeholder="페이스북">
-    </div>
-  </div>
-  <div class="form-group">
     <label for="fi-password" class="col-sm-2 control-label">암호</label>
     <div class="col-sm-4">
       <input type="password" class="form-control" id="fi-password" placeholder="암호">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fi-homepage" class="col-sm-2 control-label">홈페이지</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="fi-homepage" placeholder="홈페이지">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fi-facebook" class="col-sm-2 control-label">페이스북</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="fi-facebook" placeholder="페이스북">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fi-twitter" class="col-sm-2 control-label">트위터</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="fi-twitter" placeholder="트위터">
     </div>
   </div>
   <div class="form-group">
@@ -69,9 +74,9 @@
 </form>
 </div>
 
+<script src="view.js"></script>
 
-<script src ='view.js'></script>
-
+</script>
 </body>
 </html>
 

@@ -2,7 +2,7 @@
 
 window.$ = window.jquery = require('jquery')
 
-var studentService =require('electron').remote.getGlobal('studentService')
+var managerService =require('electron').remote.getGlobal('managerService')
 /*
 // electron 관리자 객체 얻기
 var electron = require ('electron')
@@ -11,7 +11,7 @@ var remote = electron.remote
 
 var studentService =  remote.getGlobal('studentService')
 */
-var tbody = $('#student-tbl > tbody')
+var tbody = $('#manager-tbl > tbody')
 
 displayList(1)
 
@@ -29,7 +29,7 @@ $('#next-btn').click(function() {
   displayList(currPageNo + 1)
 })
 function displayList(pageNo) {
-  studentService.list(
+  managerService.list(
     pageNo,
     function (results, totalCount) {
 
@@ -38,12 +38,13 @@ function displayList(pageNo) {
 
       for (var i = 0; i < 3; i++) {
         if (i < results.length) {
-          let s = results[i]
-          $("<tr>").html("<td>" + s.mno +
-          "</td><td><a href='#' data-no='" + s.mno + "' class='view-link'>" + s.name +
-          "</a></td><td>" + s.tel +
-          "</td><td>" + s.email +
-          "</td><td>" + (s.work =="Y" ? "재직중" : "실업") + "</td>")
+          let r = results[i]
+          $("<tr>").html("<td>" + r.mno +
+          "</td><td><a href='#' data-no='" + r.mno + "' class='view-link'>" + r.name +
+          "</a></td><td>" + r.tel +
+          "</td><td>" + r.email +
+          "</td><td>" + r.posi +
+          "</td><td>" + r.fax + "</td>")
           .appendTo(tbody)
         } else {
           $("<tr><td colspan='5'>&nbsp;</td></tr>").appendTo(tbody)

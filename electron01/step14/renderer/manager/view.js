@@ -1,35 +1,39 @@
 "use strict"
 
 window.$ = window.jQuery = require('jquery')
-var studentService =require('electron').remote.getGlobal('studentService')
+var managerService =require('electron').remote.getGlobal('managerService')
 
 
 var fiNo = $('#fi-no'),
     fiEmail = $('#fi-email'),
     fiName = $('#fi-name'),
     fiTel = $('#fi-tel'),
-    fiSchoolName = $('#fi-school-name'),
-    fiWorking = $('#fi-working');
+    fiPosi = $('#fi-posi'),
+    fiFax = $('#fi-fax'),
+    fiPath = $('#fi-path'),
+    fiPassword =$('#fi-password');
+
 
 if (location.search == "") {
   $('.bit-view').css('display', 'none')
   $('.bit-new').css('display', '')
 
   $('#add-btn').click(function() {
-    studentService.insert(
+    managerService.insert(
       {
         name: fiName.val(),
         tel: fiTel.val(),
         email: fiEmail.val(),
-        password: '1111',
-        working:(fiWorking.prop('checked') ? 'Y' : 'N'),
-        schoolName: fiSchoolName.val()
+        posi: fiPosi.val(),
+        fax: fiFax.val(),
+        path:fiPath.val(),
+        password: fiPassword.val()
       },
       function() {
             location.href = 'index.html'
           },
           function(error) {
-            alert('학생 데이터 등록 중 오류 발생!')
+            alert('매니저 데이터 등록 중 오류 발생!')
             throw error;
     }) //insertMember()
   }) // click()
@@ -38,51 +42,54 @@ if (location.search == "") {
   $('.bit-new').css('display', 'none')
   var no = location.search.substring(1).split('=')[1]
 
-  studentService.detail(
+  managerService.detail(
     no,
     function(result) {
-      var student = result
-      fiNo.text(student.mno)
-      fiEmail.val(student.email)
-      fiName.val(student.name)
-      fiTel.val(student.tel)
-      fiSchoolName.val(student.schl_nm)
-      fiWorking.attr('checked', (student.work == 'Y' ? true : false))
+      var manager = result
+      fiNo.text(manager.mrno)
+      fiName.val(manager.name)
+      fiTel.val(manager.tel)
+      fiEmail.val(manager.email)
+      fiPosi.val(manager.posi)
+      fiFax.val(manager.fax)
+      fiPassword.val(manager.password)
+
     },
     function(error) {
-      alert('학생 데이터 가져오는 중 오류 발생!')
+      alert('매니저 데이터 가져오는 중 오류 발생!')
       throw error
   })
 
   $('#upd-btn').click(function() {
-    studentService.update(
+    managerService.update(
       {
         "no": no,
         "name": fiName.val(),
         "tel": fiTel.val(),
         "email": fiEmail.val(),
-        "working": (fiWorking.prop('checked') ? 'Y' : 'N'),
-        "schoolName": fiSchoolName.val()
+        "posi": fiPosi.val(),
+        "fax": fiFax.val()
+
       },
           function(result) {
             alert('변경하였습니다.')
           },
 
       function(error) {
-        alert('회원 기본 데이터 변경 중 오류 발생!')
+        alert('매니저 기본 데이터 변경 중 오류 발생!')
         throw error;
     })
   }) // click()
 
 
   $('#del-btn').click(function() {
-    studentService.delete(no,
+    managerService.delete(no,
      function(result) {
         alert('삭제 하였습니다.')
           location.href = 'index.html'
         },
           function(error) {
-              alert('학생 기본 데이터 삭제 중 오류 발생!')
+              alert('매니저 기본 데이터 삭제 중 오류 발생!')
               throw error;
       })
   }) // click()

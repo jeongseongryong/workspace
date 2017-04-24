@@ -5,10 +5,28 @@ module.exports = {
     this.connection = con
   },
 
+  selectNameList(successFn, errorFn) {
+    this.connection.query(
+      'select mr.mrno, m.name \
+      from mgr mr inner join memb m on mr.mrno=m.mno order by m.name asc',
+      function(error, results) {
+        if (error) {
+          errorFn(error)
+        } else {
+          successFn(results)
+        }
+      }) // connection.query()
+  },//selectNameList()
+
+/*
+select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax
+from mgr mr inner join memb m on mr.mrno=m.mno
+order by m.name asc;
+*/
   selectList(pageNo, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, s.work \
-      from stud s inner join memb m on s.sno=m.mno  \
+      'select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax \
+      from mgr mr inner join memb m on mr.mrno=m.mno  \
       order by m.name asc \
       limit ?, ?',
       [(pageNo - 1) * 3, 3],
@@ -23,7 +41,7 @@ module.exports = {
 
   countAll(successFn, errorFn) {
     this.connection.query(
-      'select count(*) cnt from stud',
+      'select count(*) cnt from mgr',
       function(error, results) {
         if (error) {
           errorFn(error)
@@ -32,12 +50,16 @@ module.exports = {
         }
       }) //connection.query()
   },//countAll()
-
+/*
+select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax
+from mgr mr inner join memb m on mr.mrno=m.mno
+where mr.mrno=33
+*/
   selectOne(no, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, s.work, s.schl_nm \
-      from stud s inner join memb m on s.sno=m.mno \
-      where s.sno=?',
+      'select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax, mr.path\
+      from mgr mr inner join memb m on mr.mrno=m.mno \
+      where mr.mrno=?',
       [no],
       function(error, results) {
         if (error) {
@@ -48,10 +70,10 @@ module.exports = {
       }) // connection.query()
   },//selectOne()
 
-  insert(student, successFn, errorFn) {
+  insert(manager, successFn, errorFn) {
     this.connection.query(
-      'insert into stud(sno,work,schl_nm) values(?,?,?)',
-      [ student.no, student.working, student.schoolName],
+      'insert into mgr(mrno,posi,fax,path) values(?,?,?,?)',
+      [manager.no, manager.posi, manager.fax, manager.path],
       function(error, result) {
         if (error) {
           errorFn(error)
@@ -61,10 +83,10 @@ module.exports = {
       }) //connection.query()
   }, //insert
 
-  update(student, successFn, errorFn) {
+  update(manager, successFn, errorFn) {
     this.connection.query(
-      'update stud set work=?, schl_nm=? where sno=?',
-      [student.working, student.schoolName, student.no],
+      'update mgr set posi=?, fax=?, path=?, where mrno=?',
+      [manager.posi, manager.fax, manager.path, manager.no],
       function(error, result) {
         if (error) {
           errorFn(error)
@@ -76,7 +98,7 @@ module.exports = {
 
   delete(no, successFn, errorFn) {
     this.connection.query(
-      'delete from stud where sno=?',
+      'delete from mgr where mrno=?',
       [no],
       function(error, result) {
         if (error) {
