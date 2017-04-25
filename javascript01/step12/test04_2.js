@@ -60,8 +60,6 @@ const server = http.createServer(function(request, response) {
     <body>')
 
   response.write('<h1>학생 등록 결과정보</h1>')
-
-
 studentService.insert(student, function(results) {
   response.write('입력성공입니다.')
   response.write('</body></html>')
