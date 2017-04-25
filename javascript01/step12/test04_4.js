@@ -16,13 +16,14 @@ const server = http.createServer(function(request, response) {
     response.end();
     return;
   }
-  var urlInfo = url.parse(request.url, true)
+  console.log('클라이언트 요청이 들어왔네!')
 
   response.writeHead(200, {
     'Content-Type' : 'text/plain;charset=UTF-8'
   })
 
   // URL 분석기 실행
+  var urlInfo = url.parse(request.url, true)
 
   // URL에서 '?' 앞에 나오는 경로(http://localhost:8888 은 제외)
   if (urlInfo.pathname != '/calculator') {
