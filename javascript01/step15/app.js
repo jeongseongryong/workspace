@@ -1,26 +1,27 @@
-/* Express 프레임워크 사용
+/* Express 프레임워크 적용
 */
 var express = require('express')
 var bodyParser = require('body-parser')
-// 템플릿 엔진을 통합하여 엔진을 관리해주는 모듈
-
+var path = require('path')
+var cons = require('consolidate')
+// var handlebars = require('handlebars')
 
 var app = express()
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/', function(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/html;charset=UTF-8'})
-  response.end('<html> \
-    <head> \
-      <title>main</title> \
-    </head> \
-    <body> \
-    <h1>환영합니다.</h1> \
-    </body> \
-    </html>')
-})
+app.engine('hbs',cons.handlebars)
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, '/views'))
 
+
+app.use('/student', require('./control/student-control'))
+app.use('/teacher', require('./control/teacher-control'))
+app.use('/manager', require('./control/manager-control'))
+app.use('/lecture', require('./control/lecture-control'))
+app.get('/', function(request, response) {
+  response.render('index')
+})
 
 app.listen(8888, function() {
   console.log('서버가 시작되었습니다.')
