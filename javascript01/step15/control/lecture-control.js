@@ -22,10 +22,10 @@ router.get('/list.do', (request, response) => {
   if (request.query.pageSize) {
     pageSize = parseInt(request.query.pageSize)
   }
-  studentService.list(pageNo,pageSize, function(results, totalCount) {
+  lectureService.list(pageNo,pageSize, function(results, totalCount) {
     var lastPageNo= parseInt(totalCount/ pageSize) + (((totalCount % pageSize) > 0) ? 1 : 0)
     response.setHeader('Content_Type' , 'text/html;charset=UTF-8')
-    response.render('student/index', {
+    response.render('lecture/index', {
       'data': results,
       'pageNo': pageNo,
       'nextPageNo': pageNo +1,
@@ -42,8 +42,8 @@ router.get('/list.do', (request, response) => {
 
 router.get('/detail.do', function(request, response) {
   var no = parseInt(request.query.no)
-  studentService.detail(no, function(result) {
-    response.render('student/view', {
+  lectureService.detail(no, function(result) {
+    response.render('lecture/view', {
       'detail' : true,
       'data': result,
       'checkedWorking' : (result.work == 'Y' ? 'checked' : '')
@@ -56,7 +56,7 @@ router.get('/detail.do', function(request, response) {
 }) //get
 
 router.post('/update.do', function(request, response) {
-   studentService.update({
+   lectureService.update({
      no: request.body.no,
      working:(request.body.workig == undefined ? 'N' : 'Y'),
      schoolName: request.body.schoolName,
@@ -77,7 +77,7 @@ router.post('/update.do', function(request, response) {
 
 router.get('/delete.do', function (request, response) {
   var no = parseInt(request.query.no)
-  studentService.delete(no, function(result) {
+  lectureService.delete(no, function(result) {
     response.redirect('list.do')
   }, function(error) {
   response.render('error', {
@@ -87,11 +87,11 @@ router.get('/delete.do', function (request, response) {
 })
 
 router.get('/form.do', function(request, response) {
-  response.render('student/view')
+  response.render('lecture/view')
 })
 
 router.post('/add.do', function(request, response) {
-   studentService.insert({
+   lectureService.insert({
      working:(request.body.workig == undefined ? 'N' : 'Y'),
      schoolName: request.body.schoolName,
      name: request.body.name,
