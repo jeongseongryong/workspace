@@ -18,7 +18,7 @@ classroomService.setClassroomDao(classroomDao)
 
 const router = express.Router()
 
-router.get('/list.do', (request, response) => {
+router.get('/list.json', (request, response) => {
   var pageNo = 1,
       pageSize = 3;
   if (request.query.pageNo) {
