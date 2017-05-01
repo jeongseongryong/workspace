@@ -23,39 +23,29 @@ router.get('/list.do', (request, response) => {
     pageSize = parseInt(request.query.pageSize)
   }
   managerService.list(pageNo,pageSize, function(results, totalCount) {
-    var lastPageNo= parseInt(totalCount/ pageSize) + (((totalCount % pageSize) > 0) ? 1 : 0)
-    response.setHeader('Content_Type' , 'text/html;charset=UTF-8')
-    response.render('manager/index', {
-      'data': results,
-      'pageNo': pageNo,
-      'nextPageNo': pageNo +1,
-      'prevPageNo' : pageNo -1,
-      'disabledPrevBtn' : (pageNo == 1) ? 'disabled' : '',
-      'disabledNextBtn' : (pageNo == lastPageNo) ? 'disabled' : ''
-    })
-  }, function(error){
-    response.render('error', {
-      'message' : '매니저 목록 데이터 가져오는 중 오류가발생했습니다.'})
+    response.json({'list': results, 'totalCount': totalCount})
+  }, function(error) {
+    response.status(200)
+            .set('Content-Type', 'text/plain;charset=UTF-8')
+            .end('error')
     console.log(error)
   })
 }) // get
 
-router.get('/detail.do', function(request, response) {
+router.get('/detail.json', function(request, response) {
   var no = parseInt(request.query.no)
-  managerService.detail(no, function(result) {
-    response.render('manager/view', {
-      'detail' : true,
-      'data': result,
-      'checkedWorking' : (result.work == 'Y' ? 'checked' : '')
-    })
+  mansgerService.detail(no, function(result) {
+    response.json(result)
+
   }, function(error) {
-    response.render('error', {
-      'message' : '학생 목록 데이터 가져오는 중 오류가 발생했습니다.'})
+    response.status(200)
+            .set('Content-Type', 'text/plain;charset=UTF-8')
+            .end('error')
     console.log(error)
   })
-}) //get
+})
 
-router.post('/update.do', function(request, response) {
+router.post('/update.json', function(request, response) {
    managerService.update({
      no: request.body.no,
      working:(request.body.workig == undefined ? 'N' : 'Y'),
@@ -68,32 +58,30 @@ router.post('/update.do', function(request, response) {
      fax: request.body.fax,
      path: request.body.path
    }, function(result) {
+     response.json({'result': 'yes'})
 
-     response.redirect('list.do')
+   }, function(error) {
+     response.status(200)
+             .set('Content-Type', 'text/plain;charset=UTF-8')
+             .end('error')
+     console.log(error)
+   })
+})
 
-}, function(error) {
-  response.render('error', {
-    'message' : '매니저 데이터를 변경하는 중 오류가 발생했습니다.'})
-  console.log(error)
-  })
-}) //post
-
-router.get('/delete.do', function (request, response) {
+router.get('/delete.json', function (request, response) {
   var no = parseInt(request.query.no)
   managerService.delete(no, function(result) {
-    response.redirect('list.do')
+    response.json({'result': 'yes'})
   }, function(error) {
-  response.render('error', {
-    'message' : '매니저 데이터를 변경하는 중 오류가 발생했습니다.'})
-  console.log(error)
-  })
+    response.status(200)
+            .set('Content-Type', 'text/plain;charset=UTF-8')
+            .end('error')
+    console.log(error)
+    })
 })
 
-router.get('/form.do', function(request, response) {
-  response.render('manager/view')
-})
 
-router.post('/add.do', function(request, response) {
+router.post('/add.list', function(request, response) {
    managerService.insert({
      name: request.body.name,
      tel: request.body.tel,
@@ -105,15 +93,15 @@ router.post('/add.do', function(request, response) {
 
    }, function(result) {
 
-     response.redirect('list.do')
+     response.json({'result' : 'yes'})
 
-}, function(error) {
-  response.render('error', {
-    'message' : '학생 데이터를 등록하는 중 오류가 발생했습니다.'})
-  console.log(error)
+ }, function(error) {
+   response.status(200)
+           .set('Content-Type', 'text/plain;charset=UTF-8')
+           .end('error')
+   console.log(error)
   })
-}) //post
-
+})
 
 
 module.exports = router

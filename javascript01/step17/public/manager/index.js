@@ -20,20 +20,7 @@ function displayList(pageNo) {
     tbody.text('') //tbody 의 기존 tr 태그들을 지우고
     tbody.html(generatedHTML) // 새 tr 태그들로 설정한다.
 
-    /*tbody.text('')
-    for (var t of list) {
-      $('<tr>').append($('<td>').text(t.mno))
-               .append($('<td>').append(
-                 $('<a>').attr('href', 'view.html?no=' + t.mno)
-                         .text(t.name == '' ? '(이름 없음)' : t.name)))
-               .append($('<td>').text(t.tel))
-               .append($('<td>').text(t.email))
-               .append($('<td>').text(t.pric))
-               .append($('<td>').text(t.fax))
-               .append($('<td>').text(t.path))
-               .appendTo(tbody)
-    }
-    */
+
     currPageNo = pageNo
     pageNoTag.text(currPageNo)
 

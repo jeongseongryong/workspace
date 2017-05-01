@@ -44,7 +44,8 @@
 </div>
 
 <script id="tbody-template" type="text/x-handlebars-template">
-{{#each data}}
+
+{{#each list}}
 <tr>
  <td>{{mno}}</td>
  <td><a href="view.html?no={{mno}}">{{name}}</a></td>
@@ -55,9 +56,11 @@
  <td>{{path}}</td>
 </tr>
 {{/each}}
+
 </script>
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="index.js"></script>
 
 </body>
