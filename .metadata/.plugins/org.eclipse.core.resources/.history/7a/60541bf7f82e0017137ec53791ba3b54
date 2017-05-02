@@ -1,0 +1,21 @@
+/* 리터럴- 문자 리터럴
+*/
+
+package step01;
+
+public class Test11 {
+	public static float xxx = 12.375f;
+	
+	public static void main(String[] args) {
+
+		System.out.println("ABC가각간");
+		
+		System.out.println("홍길동" + "입니다.");
+
+/*
+ * 유니코드(Unicode)
+ * =>자바에서 문자를 다룰 떄 2바이트 유니코드 값을 사용한다.
+ * 
+ *
+ */
+ 

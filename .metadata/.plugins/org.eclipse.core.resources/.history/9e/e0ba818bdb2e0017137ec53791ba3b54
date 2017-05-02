@@ -1,0 +1,12 @@
+/* 변수 선언- 정수 리터럴과 2진수, 8진수, 10진수, 16진
+*/
+
+package step01;
+
+public class Test5 {
+	public static void main(String[] args) {
+		System.out.println(100); // 10진수
+		System.out.println(0144); // 8진수
+		System.out.println(0x64); // 16진수
+	}
+}

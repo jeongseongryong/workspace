@@ -1,0 +1,22 @@
+/* 리터럴- 부동 소수점과 유효자릿수
+*/
+
+package step01;
+
+public class Test7 {
+	public static float xxx = 12.375f;
+	
+	public static void main(String[] args) {
+    //1) 4바이트 메모리
+		System.out.println(987.654f);
+		System.out.println(999.9999f);	// 보통 7자리까지 유효하다.
+		System.out.println(9.999999f);
+		System.out.println(999999.9f);// 보통 7자리까지 유효하다.
+		System.out.println(987.65498f); // 유효자릿수를 넘어 가면 값이 짤림
+                                    //주의!  컴파일 오류가 발생하지 않는다.
+		//2) 8바이트 메모리
+		System.out.println(99999.999999999999999);
+		System.out.println(987.6549);
+		System.out.println(987.65498);
+	}
+}

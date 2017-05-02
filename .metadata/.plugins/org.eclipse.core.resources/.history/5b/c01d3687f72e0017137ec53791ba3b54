@@ -1,0 +1,19 @@
+/* 리터럴- 문자 리터럴
+*/
+
+package step01;
+
+public class Test10 {
+	public static float xxx = 12.375f;
+	
+	public static void main(String[] args) {
+    char c1 = 44032; //'가' 의 유니 코드 값
+		System.out.println(c1);
+		
+		char c2 = 0xAC00; //'가' 의 유니코드 값
+		System.out.println(c2);
+		
+		char c3 = '헐'; // '헐'의 유니코드 값. 작은 따옴표를 이용하면 문자의 유니코드 값을 알아낼수있음
+		System.out.println(c3);
+		}
+	}

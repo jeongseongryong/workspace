@@ -1,0 +1,24 @@
+/*변수 선언 :부동소수점 변수*/
+
+		package step02;
+
+		public class Test7 {
+			public static void main(String[] args) {
+				//1) 배열 레퍼런스 변수 선언하기
+      byte[] arr1; //java언어 에서 주로쓰는 문법
+      
+      
+     arr1[0] = 10;
+     arr1[1] = 20;
+     arr1[2] = 30;
+     
+     System.out.printf("%d,%d,%d\n",arr1[0],arr1[1],arr1[2]);
+     
+     arr1[3] =40; //존재하지 않는 메모리의 인덱스를 가리키더라도 컴파일 오류는 발생하지 않는다.
+      //그러나 실행할 때 그 인덱스에 해당하는 메모리가 없기 떄문에 실행 오류가  발생한다!
+     
+     
+
+   }
+}
+    

@@ -1,0 +1,22 @@
+/*변수 선언 :부동소수점 변수*/
+package step02;
+
+public class Test3 {
+	public static void main(String[] args) {
+		float f; // 4byte 크기의메모리
+		double d; // 8byte 크기의메모리
+		
+		f= 9.999999f;
+			System.out.println(f);
+			
+		f= 999999.9f;
+			System.out.println(f);
+			
+		f= 9.9999997f; // 유효자릿수 7자리를 넘기면? 값이 짤리거나 반올림 한다.
+			//그래서 유효자릿수를 넘지 않는 값을 저장해야 올바르게 꺼낼 수 있다.
+		System.out.println(f);
+		
+		f = 12.583583683f;
+		System.out.println(f);
+	}
+}

@@ -1,0 +1,12 @@
+/* 리터럴- 이스케이프 문자 
+*/
+
+package step01;
+
+public class Test12 {
+	
+	public static void main(String[] args) {
+		System.out.println("ABC\b가각간"); //backspace
+
+  }
+}

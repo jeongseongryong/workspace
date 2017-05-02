@@ -1,0 +1,12 @@
+/*변수 선언 :부동소수점 변수*/
+
+		package step02;
+
+		public class Test6 {
+			public static void main(String[] args) {
+     byte[] arr1 = new byte[3];
+     
+		    
+			}
+		}
+    
