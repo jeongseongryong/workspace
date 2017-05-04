@@ -1,0 +1,17 @@
+/* 연산자 : 산술 연산자(+,-,/,*,%): 정수 연산의 최소 단위는 int이다.
+ * 
+ */
+package step03;
+
+public class Test01_2 {
+
+  public static void main(String[] args) {
+   byte b1 = 10;
+   byte b2 = 20;
+   byte b3 = 10 + 20; 
+   byte b4 = b1 + b2; //컴파일오류
+   byte b5 = b1 + 20; //컴파일오류
+   byte b6 = 10 + b2; //컴파일오류
+  }
+
+}

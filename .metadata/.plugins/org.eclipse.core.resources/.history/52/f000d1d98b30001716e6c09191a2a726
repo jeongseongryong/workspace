@@ -1,0 +1,61 @@
+/*사용자 정의 데이터 타입: 생성자
+ * => 인스턴스를 생성한 후 자동으로 호출되는 특별한 메서드.
+ * => 그래서 주로 인스턴스를 사용하기전에 그메모리를 초기화 시키는 용도로 사용한다.
+ * => 자바스크립트와 달리 자바의 생성자는 특별한 문법으로 작성한다.
+ * => 문법
+ *    클래스명(파라미터들){}
+ */
+		package step02;
+
+public class Test16 {
+  static  class Student {
+		String name;
+		int[] scores;
+		int total;
+		float aver;
+		
+		Student(String name, int kor, int eng, int math){
+			// 인스턴스를 가리킬 때 내장변수 this를 사용하라!
+			this.name = name;
+			this.scores = new int[]{kor, eng, math};
+			this.total = kor + eng + math;
+			this.aver = this.total / 3f;
+		}
+	}
+	
+	public static Student createStudent(String name, int kor, int eng, int math) {
+		Student s = new Student();
+		s.name = name;
+		s.scores = new int[]{kor, eng, math};
+		s.total = kor + eng + math;
+		s.aver = s.total / 3f;
+		return s;
+		}
+	
+	public static void main(String[] args) {
+
+      Student[] arr1  = new Student[3];
+      
+      arr1[0] = createStudent("홍길동",100,100,100);
+      arr1[1] = createStudent("임꺽정",90,90,90);
+      arr1[2] = createStudent("유관순",80,80,80);
+      
+      
+     
+      for(int i=0; i< arr1.length; i++) {
+      	System.out.printf("%s,%d,%d,%d,%d, %.1f\n",
+        		arr1[i].name,
+        		arr1[i].scores[0],
+        		arr1[i].scores[1],
+        		arr1[i].scores[2],
+        		arr1[i].total, arr1[i].aver);
+      
+      }
+      
+      
+	}
+}
+ /* 
+  * primitive data type
+  * 
+  * */ 
