@@ -1,0 +1,9 @@
+/* 문장:반복문 while  */
+package step04;
+
+public class test03_1 {
+   
+  public static void main(String[] args) {
+   int i = 0;
+ }
+}

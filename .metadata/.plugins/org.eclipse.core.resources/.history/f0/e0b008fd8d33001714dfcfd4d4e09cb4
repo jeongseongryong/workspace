@@ -1,0 +1,12 @@
+/* 증가/감소 연산자
+ * 
+ */
+package step03;
+
+public class Test02_1 {
+
+  public static void main(String[] args) {
+    int i = 10;
+    i++; // i = i + 1 명령과 같다.
+  }
+}

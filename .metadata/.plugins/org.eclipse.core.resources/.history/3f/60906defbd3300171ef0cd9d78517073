@@ -1,0 +1,18 @@
+/* 메서드 : 여러 개의 값을 리턴하고 싶을 때 II*/
+package step05;
+
+public class Test04 {
+  
+   public static java.util.ArrayList getStudent(int studentNo){
+    java.util.ArrayList arr = new {100, 90, 100};
+    return scores;
+   }
+   
+   public static void main(String[] args) {
+    int[] arr = getScore(100);
+    for (int value : arr) {
+    	System.out.println(value);
+    }
+   }
+  }
+

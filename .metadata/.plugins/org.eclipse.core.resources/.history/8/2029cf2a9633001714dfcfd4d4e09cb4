@@ -1,0 +1,17 @@
+/* 관계연산자
+ * 
+ */
+package step03;
+
+public class Test03_1 {
+  public static void m1(int value) {
+  	System.out.println(value);
+  }
+  public static void main(String[] args) {
+    int i = 3;
+    m1(++i);
+    
+    i = 3;
+    m1(i++);
+  }
+}

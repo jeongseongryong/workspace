@@ -1,0 +1,23 @@
+/* 메서드 : 여러 개의 값을 리턴하고 싶을 때 III*/
+package step05;
+
+public class Test05 {
+  
+   public static java.util.HashMap getStudent(int studentNo){
+    java.util.HashMap map = new java.util.HashMap();
+    map.put("이름","홍길동");
+    map.put("국어", 100);
+    map.put("영어", 90);
+    map.put("수학", 80);
+    map.put("총점", 100 + 90 + 80);
+    map.put("평균", (100 + 90 + 80) / 3f);
+    return map;
+   }
+   
+   public static void main(String[] args) {
+    java.util.HashMap list = getStudent(100);
+    
+    }
+   }
+  }
+

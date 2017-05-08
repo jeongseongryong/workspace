@@ -1,0 +1,12 @@
+/* 비트 이동 연산자 (>>, >>>, <<)
+ * 
+ */
+package step03;
+
+public class Test03_6 {
+  public static void main(String[] args) {
+    int a = 0b0000_1011;
+    
+    System.out.println(a);
+  }
+}

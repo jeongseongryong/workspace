@@ -1,0 +1,12 @@
+/* 비트논리연산자 응용 
+ * 
+ */
+package step03;
+
+public class Test03_5 {
+  public static void main(String[] args) {
+    int a = 0b111;
+    int b = 0b100;
+    int c = 0b001;
+  }
+}

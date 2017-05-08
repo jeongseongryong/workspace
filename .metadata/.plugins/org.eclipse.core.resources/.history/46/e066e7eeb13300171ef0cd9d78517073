@@ -1,0 +1,11 @@
+/*변수 선언 : 변수의 범위*/
+package step02;
+
+public class Test18 {
+	static int a = 10; // 클래스 안에서 무제한 사용
+	public static void main(String[] args) {
+
+	}
+
+}
+/* 변수 선언*/

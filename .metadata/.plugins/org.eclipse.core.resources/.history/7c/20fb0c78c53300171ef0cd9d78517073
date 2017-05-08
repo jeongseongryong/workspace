@@ -1,0 +1,27 @@
+/* 메서드 : 힙 메모리*/
+package step05;
+
+public class Test08 {
+	public static void m1(int a){
+		int[] arr =m2(a + 1);
+		return arr;
+	}
+	public static void m2(int a){
+		int[] arr =m3(a + 1);
+		arr[1] = a + 1;
+		return arr;
+	}
+	public static void m3(int a){
+		int[] arr =new int[3];
+		arr[0] = a + 1;
+	}
+   
+   public static void main(String[] args) {
+    int a = 20;
+    m1(a); // a 변수를 넘기는 것이 아니라, a 변수의 값을 넘긴다.
+    System.out.printf("main()%d\n", a);
+		
+		}
+   }
+  
+
