@@ -11,7 +11,7 @@
    height: 100px;
    font-size: 20px;
    margin-bottom: 5px;
-   background-color: hotpink;
+   background-color: skyblue;
    color: black;
 }
 
@@ -72,7 +72,6 @@ function change1() {
    s[0] = temp
    $("#5btn").text(s[4])
    $("#1btn").text(s[0])
- }
 } //change1
 
 function change2() {
@@ -97,7 +96,321 @@ function change2() {
     $("#6btn").text(s[5])
     $("#2btn").text(s[1])
   }
-}
+} //cahnge2
+
+function change3() {
+  if ($("#2btn").text() == "") {
+    temp = s[2]
+    s[2] = s[1]
+    s[1] = temp
+    $("#2btn").text(s[1])
+    $("#3btn").text(s[2])
+  }else if ($("#4btn").text() == "") {
+    temp = s[3]
+    s[3] = s[2]
+    s[2] = temp
+    $("#3btn").text(s[2])
+    $("#4btn").text(s[3])
+  }else if ($("#7btn").text() == "") {
+    temp = s[6]
+    s[6] = s[2]
+    s[2] = temp
+    $("#3btn").text(s[2])
+    $("#7btn").text(s[6])
+  }
+} //change3
+
+function change4() {
+  if ($("#3btn").text() == "") {
+    temp = s[3]
+    s[3] = s[2]
+    s[2] = temp
+    $("#4btn").text(s[3])
+    $("#3btn").text(s[2])
+  }else if ($("#8btn").text() == "") {
+    temp = s[3]
+    s[3] = s[7]
+    s[7] = temp
+    $("#4btn").text(s[3])
+    $("#8btn").text(s[7])
+  }
+} //change4
+
+function change5() {
+  if ($("#1btn").text() == "") {
+    temp = s[4]
+    s[4] = s[0]
+    s[0] = temp
+    $("#1btn").text(s[0])
+    $("#5btn").text(s[4])
+  }else if ($("#6btn").text() == "") {
+    temp = s[4]
+    s[4] = s[5]
+    s[5] = temp
+    $("#5btn").text(s[4])
+    $("#6btn").text(s[5])
+  }else if ($("#9btn").text() == "") {
+    temp = s[4]
+    s[4] = s[8]
+    s[8] = temp
+    $("#5btn").text(s[4])
+    $("#9btn").text(s[8])
+  }
+} //change5
+
+function change6() {
+  if ($("#2btn").text() == "") {
+    temp = s[5]
+    s[5] = s[1]
+    s[1] = temp
+    $("#2btn").text(s[1])
+    $("#6btn").text(s[5])
+  }else if ($("#5btn").text() == "") {
+    temp = s[5]
+    s[5] = s[4]
+    s[4] = temp
+    $("#6btn").text(s[5])
+    $("#5btn").text(s[4])
+  }else if ($("#7btn").text() == "") {
+    temp = s[5]
+    s[5] = s[6]
+    s[6] = temp
+    $("#6btn").text(s[5])
+    $("#7btn").text(s[6])
+  }else if ($("10btn").text() == "") {
+    temp = s[5]
+    s[5] = s[9]
+    s[9] = temp
+    $("#6btn").text(s[5])
+    $("#10btn").text(s[9])
+  }
+} //change6
+
+function change7() {
+  if ($("#3btn").text() == "") {
+    temp = s[6]
+    s[6] = s[2]
+    s[2] = temp
+    $("#3btn").text(s[2])
+    $("#7btn").text(s[6])
+  }else if ($("#6btn").text() == "") {
+    temp = s[6]
+    s[6] = s[5]
+    s[5] = temp
+    $("#7btn").text(s[6])
+    $("#6btn").text(s[5])
+  }else if ($("#8btn").text() == "") {
+    temp = s[6]
+    s[6] = s[7]
+    s[7] = temp
+    $("#8btn").text(s[7])
+    $("#7btn").text(s[6])
+  }else if ($("11btn").text() == "") {
+    temp = s[6]
+    s[6] = s[10]
+    s[10] = temp
+    $("#7btn").text(s[6])
+    $("#11btn").text(s[10])
+  }
+} //change7
+
+function change8() {
+  if ($("#4btn").text() == "") {
+    temp = s[7]
+    s[7] = s[3]
+    s[3] = temp
+    $("#8btn").text(s[7])
+    $("#4btn").text(s[3])
+  }else if ($("#7btn").text() == "") {
+    temp = s[7]
+    s[7] = s[6]
+    s[6] = temp
+    $("#7btn").text(s[6])
+    $("#8btn").text(s[7])
+  }else if ($("#12btn").text() == "") {
+    temp = s[7]
+    s[7] = s[11]
+    s[11] = temp
+    $("#12btn").text(s[11])
+    $("#8btn").text(s[7])
+  }
+} //change8
+
+function change9() {
+  if ($("#5btn").text() == "") {
+    temp = s[8]
+    s[8] = s[4]
+    s[4] = temp
+    $("#9btn").text(s[8])
+    $("#5btn").text(s[4])
+  }else if ($("#10btn").text() == "") {
+    temp = s[8]
+    s[8] = s[9]
+    s[9] = temp
+    $("#10btn").text(s[9])
+    $("#9btn").text(s[8])
+  }else if ($("#13btn").text() == "") {
+    temp = s[8]
+    s[8] = s[12]
+    s[12] = temp
+    $("#13btn").text(s[12])
+    $("#9btn").text(s[8])
+  }
+} //change9
+
+function change10() {
+  if ($("#6btn").text() == "") {
+    temp = s[9]
+    s[9] = s[5]
+    s[5] = temp
+    $("#10btn").text(s[9])
+    $("#6btn").text(s[5])
+  }else if ($("#9btn").text() == "") {
+    temp = s[9]
+    s[9] = s[8]
+    s[8] = temp
+    $("#9btn").text(s[8])
+    $("#10btn").text(s[9])
+  }else if ($("#11btn").text() == "") {
+    temp = s[9]
+    s[9] = s[10]
+    s[10] = temp
+    $("#11btn").text(s[10])
+    $("#10btn").text(s[9])
+  }else if ($("#14btn").text() == "") {
+    temp = s[9]
+    s[9] = s[13]
+    s[13] = temp
+    $("#14btn").text(s[13])
+    $("#10btn").text(s[9])
+  }
+} //change10
+
+function change11() {
+  if ($("#7btn").text() == "") {
+    temp = s[10]
+    s[10] = s[6]
+    s[6] = temp
+    $("#11btn").text(s[10])
+    $("#7btn").text(s[6])
+  }else if ($("#10btn").text() == "") {
+    temp = s[10]
+    s[10] = s[9]
+    s[9] = temp
+    $("#11btn").text(s[10])
+    $("#10btn").text(s[9])
+  }else if ($("#12btn").text() == "") {
+    temp = s[10]
+    s[10] = s[11]
+    s[11] = temp
+    $("#11btn").text(s[10])
+    $("#12btn").text(s[11])
+  }else if ($("#15btn").text() == "") {
+    temp = s[10]
+    s[10] = s[14]
+    s[14] = temp
+    $("#11btn").text(s[10])
+    $("#15btn").text(s[14])
+  }
+} //change11
+
+function change12() {
+  if ($("#8btn").text() == "") {
+    temp = s[11]
+    s[11] = s[7]
+    s[7] = temp
+    $("#8btn").text(s[7])
+    $("#12btn").text(s[11])
+  }else if ($("#11btn").text() == "") {
+    temp = s[11]
+    s[11] = s[10]
+    s[10] = temp
+    $("#11btn").text(s[10])
+    $("#12btn").text(s[11])
+  }else if ($("#16btn").text() == "") {
+    temp = s[11]
+    s[11] = s[15]
+    s[15] = temp
+    $("#12btn").text(s[11])
+    $("#16btn").text(s[15])
+  }
+} //change12
+
+function change13() {
+  if ($("#9btn").text() == "") {
+    temp = s[12]
+    s[12] = s[8]
+    s[8] = temp
+    $("#9btn").text(s[8])
+    $("#13btn").text(s[12])
+  }else if ($("#14btn").text() == "") {
+    temp = s[12]
+    s[12] = s[13]
+    s[13] = temp
+    $("#13btn").text(s[12])
+    $("#14btn").text(s[13])
+  }
+} //change13
+
+function change14() {
+  if ($("#10btn").text() == "") {
+    temp = s[13]
+    s[13] = s[9]
+    s[9] = temp
+    $("#10btn").text(s[9])
+    $("#14btn").text(s[13])
+  }else if ($("#13btn").text() == "") {
+    temp = s[13]
+    s[13] = s[12]
+    s[12] = temp
+    $("#14btn").text(s[13])
+    $("#13btn").text(s[12])
+  }else if ($("#15btn").text() == "") {
+      temp = s[13]
+      s[13] = s[14]
+      s[14] = temp
+      $("#14btn").text(s[13])
+      $("#15btn").text(s[14])
+  }
+} //change14
+
+function change15() {
+  if ($("#11btn").text() == "") {
+    temp = s[14]
+    s[14] = s[10]
+    s[10] = temp
+    $("#11btn").text(s[10])
+    $("#15btn").text(s[14])
+  }else if ($("#14btn").text() == "") {
+    temp = s[14]
+    s[14] = s[13]
+    s[13] = temp
+    $("#14btn").text(s[13])
+    $("#15btn").text(s[14])
+  }else if ($("#16btn").text() == "") {
+      temp = s[14]
+      s[14] = s[15]
+      s[15] = temp
+      $("#16btn").text(s[15])
+      $("#15btn").text(s[14])
+  }
+} //change15
+
+function change16() {
+  if ($("#12btn").text() == "") {
+    temp = s[15]
+    s[15] = s[11]
+    s[11] = temp
+    $("#12btn").text(s[11])
+    $("#16btn").text(s[15])
+  }else if ($("#15btn").text() == "") {
+    temp = s[15]
+    s[15] = s[14]
+    s[14] = temp
+    $("#15btn").text(s[14])
+    $("#16btn").text(s[15])
+  }
+} //change16
 
 function m() {
   for(var i =0; i <= 15; i++) {
