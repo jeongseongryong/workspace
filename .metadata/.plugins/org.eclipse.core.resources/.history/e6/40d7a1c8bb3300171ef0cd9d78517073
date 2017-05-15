@@ -1,6 +1,0 @@
-package step05;
-
-public class Snippet {
-	public static void m1()
-}
-
