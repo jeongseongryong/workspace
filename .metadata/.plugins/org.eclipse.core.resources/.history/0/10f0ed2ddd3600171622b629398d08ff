@@ -1,0 +1,19 @@
+/*유틸리티 클래스 : 랩퍼(wrapper) 클래스 III - 오토 박싱(auto-boxing)
+ */
+package step08;
+
+public class Test04_3  {
+	
+	public static void main(String[] args){
+	int a = 10;
+	Integer obj = new Integer(20);
+	
+	int b = obj.intValue();
+	int c = obj; // auto-unboxing
+	}
+	
+}
+	
+	
+
+

@@ -1,0 +1,8 @@
+package step06;
+/* Test02 2.java 에 있던 성적처리 관련 메서드를 분리하여 모아둔 클래스
+ * 
+ */
+
+class Member {
+
+}

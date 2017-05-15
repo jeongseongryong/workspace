@@ -1,0 +1,11 @@
+package step10.ex4;
+
+public class B extends A {
+	int b;
+	
+	// B클래스는 기본 생성자가 없다.
+	public void m3() {
+		
+		System.out.println("B.m2()");
+	}
+}

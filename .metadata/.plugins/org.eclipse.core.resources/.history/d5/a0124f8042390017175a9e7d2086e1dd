@@ -1,0 +1,13 @@
+/* 캡슐화(encapsulation) : modifier 종류
+ * 
+ */
+package step11;
+
+import step11.ex1.A;
+	
+public class Test03 {
+	public static void main(String[] args) {
+		A obj = new A();
+
+	}
+}

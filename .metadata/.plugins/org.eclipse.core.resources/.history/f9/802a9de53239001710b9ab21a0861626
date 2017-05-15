@@ -1,0 +1,12 @@
+package step09.ex4;
+
+public class C extends B {
+	int c;
+	
+	public C() { // C의 수퍼클래스인 B에는 기본생성자가 없음 그래서 컴파일오류
+		// super();
+		
+		super(7);
+		System.out.println("C()");
+	}
+}

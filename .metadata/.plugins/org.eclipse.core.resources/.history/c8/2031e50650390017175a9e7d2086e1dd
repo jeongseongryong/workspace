@@ -1,0 +1,16 @@
+package ppp;
+
+ class sss2 {
+	 public static final int DEFAULT_SIZE = 10;
+	 public static final int GROW_SIZE = 1000;
+	 
+	 private Object[] list;
+	 private int length;
+	 
+	 public sss2() {
+		 list = new Object[DEFAUT_SIZE];
+	 }
+	 public sss2(int capacity) {
+		 
+	 })
+ }

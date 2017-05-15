@@ -12,5 +12,5 @@ public class test01_1 {
   	if (20 > 10);
   	//if(20 & 10);
   }
-
+ 
 }

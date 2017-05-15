@@ -1,0 +1,9 @@
+package step09.ex3;
+
+public class B {
+	int a;
+	
+	public B() {
+		System.out.println("A()");
+	}
+}

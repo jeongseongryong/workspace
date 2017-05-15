@@ -1,0 +1,17 @@
+package step09.ex4;
+
+public class Test01 {
+
+	public static void main(String[] args) {
+		Member m = new Member();
+		Member m2 = new Student();
+		Student s1 = new Student();
+		FreeStudent f1 = new FreeStudent();
+		
+		// 다형적 변수 (polymorphic variable) - 다형성(polymorphism)
+		Member m3 = new Teacher();
+		Member m4 = new FreeStudent();
+		Student s2 = new FreeStudent();
+	}
+
+}

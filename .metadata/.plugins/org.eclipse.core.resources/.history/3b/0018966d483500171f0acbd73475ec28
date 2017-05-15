@@ -1,0 +1,13 @@
+package step07;
+
+public class Test01_2 {
+
+  static class Student {
+    static String name;
+    static int age;
+    static boolean working;
+  }
+  public static void main(String[] args) {
+  	Student s;
+  }
+}

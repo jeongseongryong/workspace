@@ -1,0 +1,16 @@
+/*클래스 로딩
+ * 
+ */
+package step07;
+
+public class Test01_1 {
+
+  static class Student {
+    static String name;
+    static int age;
+    static boolean working;
+  }
+  public static void main(String[] args) {
+  	Student s;
+  }
+}

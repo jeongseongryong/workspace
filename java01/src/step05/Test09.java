@@ -1,29 +1,33 @@
 /* 메서드 :사용자 정의 타입과 힙 메모리*/
 package step05;
-
 public class Test09 {
-	public static int[] m1(int a){
-		int[] arr = m2(a + 1);
-		arr[2] = a;
-		return arr;
+	static class Student {
+		String name;
+		int age;
+		boolean working;
+		int[] scores;
 	}
 	
-	public static int[] m2(int a){
-		int[] arr = m3(a + 1);
-		arr[1] = a;
-		return arr;
+	
+	public static Student createStudent(){
+		Student s = new Student();
+		s.name ="홍길동";
+		s.age = 20;
+		s.working = false;
+		s.scores = new int[]{100, 90, 90};
+		return s;
 	}
 	
-	public static int[] m3(int a){
-		int[] arr =new int[3]; // 
-		arr[0] = a;
-		return arr;
-	}
+	
    
    public static void main(String[] args) {
-    int[] arr = m1(100); 
-    for (int i =0; i < arr.length; i++)
-    System.out.printf("%d=%d\n", i, arr[i]);
+    Student s = createStudent();
+    System.out.printf("이름=%s\n", s.name);
+    System.out.printf("나이=%d\n", s.age);
+    System.out.printf("재직자=%b\n", s.working);
+    System.out.printf("점수=%d%d%d\n", s.scores[0], s.scores[1], s.scores[2]);
+    
+    
 		
 		}
    }

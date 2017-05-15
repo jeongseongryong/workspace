@@ -1,0 +1,38 @@
+/* 초기화 블록: 생성자 2 
+ * =>기본 생성자
+ *   => 파라미터가 없는 생성자를 "기본 생성자"라 한다 
+ *   => 클래스를 작성할 때 생성자를 만들지 않으면,
+ *      컴파일러가 자동으로 기본 생성자를 만든다.
+ *   => 즉, 모든 클래스는 한 개 이상의 생성자가 반드시 있다.
+ *      생성자가 없는 클래스는 없다.
+ *   =>그리고 인스턴스를 new 명령으로 인스턴스를 생성할 때 반드시 
+ *     어떤 생성자를 호출할 것인지 지정 해야함
+ *      
+ * =>문법
+ * 	 new 클래스명()
+ */
+package step07;
+
+public class Test03_4 {
+  static class Student {
+  	 int age = 20;
+
+     Student() {
+    	 System.out.println("Student()...호출");
+     }
+   
+  }
+  
+  static class Student2 {
+ 	 int age = 20;
+   
+   // Student2() {
+    }
+
+  
+  public static void main(String[] args) {
+  	new Student();
+  	System.out.println("----------------------");
+  	new Student();
+  }
+}

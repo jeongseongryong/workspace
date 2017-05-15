@@ -1,0 +1,24 @@
+/*유틸리티 클래스 : object - toString()
+ *
+ */
+package step08;
+
+
+
+public class Test03_2  {
+	static class Student1  {
+		String name;
+		int age;
+	}
+	public static void main(String[] args){
+		Student s = new Student();
+		System.out.println(s.toString());
+		System.out.println(s.equals(s));
+		System.out.println(s.hashCode());
+
+	}
+}
+	
+	
+
+

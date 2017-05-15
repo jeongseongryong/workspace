@@ -1,0 +1,13 @@
+package step09.ex3;
+
+public class BitStudent extends Student {
+	String school;
+
+	void print() {
+		System.out.printf("이름:%s\n", name);
+		System.out.printf("나이:%d\n", age);
+		System.out.printf("학교:%s\n", school);
+	}
+	
+}
+

@@ -1,0 +1,13 @@
+package step11;
+
+public class Calculator2 {
+	int result;
+	
+	public void plus(int value) {
+		private int result += value;
+	}
+	
+	public void minus(int value) {
+		private int result -= value;
+	}
+}

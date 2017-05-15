@@ -1,0 +1,26 @@
+/* 초기화 블록: 생성자 3 
+ * 
+ */
+package step07;
+
+public class Test03_5 {
+  static class Student {
+  	 int age = 20;
+
+     Student() {
+    	 System.out.println("Student()...호출");
+     }
+   
+     Student(int a) {
+    	 System.out.println("Student(int)...호출");
+    	 this.age = a;
+     }
+  }
+  
+  public static void main(String[] args) {
+  	new Student();
+  	new Student(20);
+  	new Student(20L); // long 값을 받는 생성자가 없다. 컴파일 오류!
+  	new Student(true); // boolean 값을 받는 생성자가 없다. 컴파일 오류!
+  }
+}

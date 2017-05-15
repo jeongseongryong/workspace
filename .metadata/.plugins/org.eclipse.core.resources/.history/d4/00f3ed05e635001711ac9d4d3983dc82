@@ -1,0 +1,25 @@
+/* 초기화 블록: 생성자 3 
+ * 
+ */
+package step07;
+
+public class Test03_5 {
+  static class Student {
+  	 int age = 20;
+
+     Student() {
+    	 System.out.println("Student()...호출");
+     }
+   
+     Student(int a) {
+    	 System.out.println("Student(int)...호출");
+    	 this.age = a;
+     }
+  }
+  
+  public static void main(String[] args) {
+  	new Student();
+  	System.out.println("----------------------");
+  	new Student();
+  }
+}

@@ -1,0 +1,13 @@
+package step10.ex4;
+
+public class C extends B {
+	int c;
+	
+	public void m1() {
+		System.out.println("C.m1()");
+	}
+	
+	public void m2() {
+		System.out.println("C.m2()");
+	}
+}

@@ -1,0 +1,6 @@
+package step09.ex3;
+
+public class Student {
+	String name;
+	int age;
+}

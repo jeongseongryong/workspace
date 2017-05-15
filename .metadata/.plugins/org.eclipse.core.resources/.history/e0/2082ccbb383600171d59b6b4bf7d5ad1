@@ -1,0 +1,14 @@
+package ppp;
+
+public class sss2 {
+
+
+	public static void main(String[] args) {
+		 if (args.length < 3) {
+			 System.out.println("[사용법]");
+			 System.out.println("java -cp bin ppp.sss2 10 x 200 ");
+			 System.out.println("연산자 +,-,*,/");
+		 }
+		
+	}
+}

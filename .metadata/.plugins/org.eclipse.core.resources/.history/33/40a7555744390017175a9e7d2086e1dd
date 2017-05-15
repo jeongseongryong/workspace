@@ -1,0 +1,19 @@
+/* 캡슐화(encapsulation) : 패키지 멤버 클래스 (일반 클래스)에 붙일 수 있는 modifier 종류
+ * 
+ */
+package step11;
+
+	
+public class Test06 {
+	
+	public void test() {
+		//this.v1 = 1; // private
+		//thus.v2 = 2; // (default)
+		this.v3 = 3; // protected. 상속 받아서 만든 변수이기 때문에 가능
+		this.v4 = 4; // public
+	}
+	public static void main(String[] args) {
+		B obj = new B();
+		
+	}
+}

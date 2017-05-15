@@ -1,0 +1,18 @@
+/*다형성 - 다형적 변수와 형변환
+ *
+ */
+package step09.ex4;
+
+public class Test05 {
+
+	public static void main(String[] args) {
+		Member m = new FreeStudent();
+		m.name = "홍길동";
+		m.id = "hong";
+		m.password = "1111";
+		m.email = "hong@test.com";
+		m.tel = "1111-1111";
+		Test04.java		FreeStudent s = (FreeStudent)m;
+		m.schoolName = "비드 대학교";
+	} 
+}

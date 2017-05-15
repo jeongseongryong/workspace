@@ -1,0 +1,30 @@
+/*유틸리티 클래스 : java.util.Calendar 클래스
+ */
+package step08;
+
+import java.sql.Date;
+
+public class Test06_1  {
+	
+	public static void main(String[] args){
+		Date[] dateList = new Date[3];
+		
+		dateList[0] = Date.valueOf("2017-3-1");
+		dateList[1] = Date.valueOf("2017-5-3");
+		dateList[2] = Date.valueOf("2017-5-5");
+		
+		Date[] temp = new Date[6];
+		for (int i = 0; i < dateList.length; i++) {
+			temp[i] = dateList[i];
+		}
+	}
+	public static void copyArray(Object[] original, Object[] target) {
+		for(int i = 0; i < original.length; i++) {
+			target[i] = original[i];
+		}
+	}
+}
+	
+	
+
+

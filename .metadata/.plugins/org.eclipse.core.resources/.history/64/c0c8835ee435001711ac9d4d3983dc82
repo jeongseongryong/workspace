@@ -1,0 +1,24 @@
+/* 초기화 블록: 생성자 2 
+ * => 기본 생성자
+ * => 파라미터가 없는 생성자를 "기본 생성자"라 한다 
+ * =>문법
+ * 		new 클래스명()
+ */
+package step07;
+
+public class Test03_4 {
+  static class Student {
+  	 int age = 20;
+
+     Student() {
+    	 System.out.println("Student()...호출");
+     }
+   
+  }
+  
+  public static void main(String[] args) {
+  	new Student();
+  	System.out.println("----------------------");
+  	new Student();
+  }
+}

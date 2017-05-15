@@ -1,0 +1,16 @@
+/*객체지향 프로그래밍(Object-Oriented Programming; OOP)
+ *  코드를 역할에 따라 분류하여 프로그래밍 하는 방법
+ *  역할에 따라 묶은 코드를 인간이나 사물처럼 하나의 독립된 개체로 간주함
+ *  코드를 인간 사회 흐름과 같이 표현하기 때문에 이해하고 관리하기 쉬움
+ *  class 라는 문법으로 표현한다.
+ */
+package step06;
+
+public class test01_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
