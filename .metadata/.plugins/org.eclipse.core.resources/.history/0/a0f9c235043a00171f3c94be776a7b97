@@ -1,0 +1,45 @@
+/*컬렉션 클래스 II : java.lang.HashSet IV
+ */
+package step08;
+
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class Test07_8  {
+
+	static class Book {
+		String title;
+		String press;
+		int page;
+		
+		public Book(String title, String press, int page) {
+			this.title = title;
+			this.press = press;
+			this.page = page;
+		}
+		
+		public String toString() {
+			return String.format("%s,%s,%d", title, press, page);
+		}
+		
+		
+	}
+	
+	public static void main(String[] args) {
+	HashMap map = new HashMap();
+
+	map.put(new String("key"), new Book("aaaa", "비트 출판사", 100));
+	map.put("key2", new Book("bbbb", "비트 출판사", 200));
+	map.put("key3", new Book("cccc", "비트 출판사", 300));
+	map.put("key4",new Book("dddd", "비트 출판사", 400));
+	map.put("key5",new Book("eeee", "비트 출판사", 500));
+	map.put("key6",new Book("ffff", "비트 출판사", 600));
+	map.put("key7",new Book("ffff", "비트 출판사", 600));
+	
+
+	}	
+}	
+
+

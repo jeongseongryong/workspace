@@ -3,22 +3,70 @@
   <head>
     <meta charset="utf-8">
     <title>타자연습</title>
+    <link rel="stylesheet"href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
     <style>
-      
+    .container {
+      width: 500px;
+      height: 500px;
+    }
+
     </style>
   <body>
-    <table>
-      <div>
-        <input type="text" name="tp" id="A">
+      <div class="container">
+        <h1>타자</h1>
+      <div class="">
+        <span type="text" name="Word" id="word"><span>
       </div>
       <div>
-        <input type="text" name="tp" id="B">
+        <span type="text" name="Count" id="count">30<span>
       </div>
       <div>
-        <input type="text" name="tp" id="C">
-        <button id="btn1" type="button">엔터</button>
+        <input type="text" name="Typing" id="typing" onkeydown="hit()">
+        <input type="button" class="btn btn-success" onclick="start()" id="Start" value="시작">
       </div>
-    </table>
+      </div>
+    <script>
+    window.$ = window.jQuery = require('jquery')
+    </script>
+    <script>
+    var count = 30
+    var json,no
+
+
+    $.getJSON("word.json", function (data) {
+      json = data.text
+      // console.log(data.text);
+      no = json.length-1
+      console.log(no);
+      console.log(json)
+      $('#word').text(json[no])
+
+    })
+
+    function start(){
+      time
+      var time = setInterval(function() {
+        $('#count').text(count--);
+        if(count == -2){
+          clearInterval(time)
+          alert("끄으으으으으ㅌ")
+        }
+      }, 1000)
+    }
+
+    function hit() {
+      if(event.keyCode == 13) {
+        if($('#word').text() == $('#typing').val()){
+          no--
+          json.pop()
+          console.log(json);
+          $('#word').text(json[no])
+        }
+      }
+    }
+
+
+    </script>
   </body>
 </html>

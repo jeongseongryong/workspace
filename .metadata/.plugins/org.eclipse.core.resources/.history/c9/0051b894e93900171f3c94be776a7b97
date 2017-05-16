@@ -1,0 +1,35 @@
+/*컬렉션 클래스 : 사용자 정의 컬렉션 클래스 사용 - LinkedList
+ */
+package step08;
+
+import java.sql.Date;
+
+public class Test06_3  {
+	
+	public static void main(String[] args) {
+	Test06_2_ArrayList dateList = new Test06_2_ArrayList();
+
+		dateList.add(Date.valueOf("2017-3-1"));
+		dateList.add(Date.valueOf("2017-5-3"));
+		dateList.add(Date.valueOf("2017-5-5"));
+		dateList.add(Date.valueOf("2017-5-9"));
+		dateList.add(Date.valueOf("2017-6-6"));
+		
+		System.out.println(dateList.size());
+		
+		dateList.add(5, Date.valueOf("2017-2-22"));	
+		
+		Object removedObj = dateList.remove(5);
+		
+		
+		Object oldObj = dateList.set(1, Date.valueOf("2017-5-4"));
+		
+			for(int i = 0; i < dateList.size(); i++){
+				System.out.println(dateList.get(i));
+		}
+		System.out.println("=>" + removedObj);
+		
+			System.out.println("=>" + oldObj);
+	}	
+}	
+

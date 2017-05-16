@@ -1,0 +1,19 @@
+/* nested class(=inner class)
+ * => 클래스나 메서드 안에 클래스를 정의하는 문법
+ * => 특정 클래스 안에서만 사용되는 클래스는 클래스 안에 정의한다.
+ * => 특정 메서드 안에서만 사용되는 클래스는 메서드 안에 정의한다.
+ *  static nested class
+ *  non-static nested class (=inner class)
+ *  local class
+ *  anonymous class
+ */
+package step13;
+
+public class Test01 {
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

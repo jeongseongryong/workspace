@@ -1,0 +1,13 @@
+/* nested class(inner class)
+ * => 클래스나 메서드 안에 클래스를 정의하는 문법
+ */
+package step13;
+
+public class Test01 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

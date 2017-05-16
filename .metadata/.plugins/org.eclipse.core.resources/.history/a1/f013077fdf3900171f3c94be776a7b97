@@ -1,0 +1,22 @@
+/* nested class: anonymous class
+ * "inner class" 라고도 한다.
+ * 인스턴스 멤버이기 때문에 다른 인스턴스 멤버만이 사용 가능
+ * 
+ */
+package step13;
+
+public class Test05_1 {
+	public static void main(String[] args) {
+		
+		Object obj = new Object() {
+			int value;
+			
+			// 익명클래스는 클래스 이름이 없기 때문에 생서자를 만들 수 없음.
+			
+			public void m1() {
+				System.out.println("m1()...");
+			}
+		};
+	}
+	
+}

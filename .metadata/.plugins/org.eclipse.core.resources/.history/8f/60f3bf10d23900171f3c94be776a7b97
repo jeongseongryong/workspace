@@ -1,0 +1,23 @@
+/* nested class: static nested class
+ * 
+ */
+package step13;
+
+
+// package member class
+public class Test02 {
+	//static variable
+	static int v1;
+	//static method
+	static void m1() {}
+	
+	static class A  { 
+		int a;
+	}
+	
+	public static void main(String[] args) {
+	
+	
+	}
+
+}

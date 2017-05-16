@@ -1,0 +1,25 @@
+/* nested class: static nested class
+ * 
+ */
+package step13;
+
+
+// package member class
+public class Test02 {
+	
+	static class A {}  //1)
+	
+	class B {} //2)
+	
+	
+	public static void main(String[] args) {
+	
+	class C {} //3)
+	
+	Object obj = new Object() {}; //4)
+	
+	//lamda로 nested 클래스 표현
+	Runnable obj2 = () -> {}; 
+	}
+
+}
