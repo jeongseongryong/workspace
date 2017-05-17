@@ -1,0 +1,26 @@
+/* 캡슐화(encapsulation) : 필드와 프로퍼티
+ * 내부 클래스(inner class)라고도 부른다
+ */
+package step11;
+
+	
+public class Test09 { 
+	public static final int HIGH_SCHOOL =1;
+	public static final int BACHELOR =2;
+	public static final int MASTER =3;
+	public static final int DOCTOR =4;
+	// 필드 선언
+	static class Student {
+		private String name;
+		private int age;
+		private int school;
+		// 프로퍼티 선언
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	 
+	}
+}

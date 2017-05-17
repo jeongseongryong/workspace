@@ -7,22 +7,38 @@
   </head>
     <style>
     .container {
+      border: 2px solid black;
       width: 500px;
       height: 500px;
+      background-color: black;
+    }
+    span {
+      font-size: 30px;
+      font-family: sans-serif;
+      position: relative;
+
+
+    }
+
+    #typing {
+      font-size: 30px;
     }
 
     </style>
   <body>
       <div class="container">
-        <h1>타자</h1>
+        <h1>Typing</h1>
       <div class="">
         <span type="text" name="Word" id="word"><span>
       </div>
       <div>
-        <span type="text" name="Count" id="count">30<span>
+        <span type="text" name="Count" id="count">30초<span>
       </div>
       <div>
-        <input type="text" name="Typing" id="typing" onkeydown="hit()">
+        <!-- <span type="text" name="Success" id="success">성공:  실패:  <span> -->
+      </div>
+      <div>
+        <input type="text" name="Typing" id="typing" onkeydown="hit()" style="background-color:transparent;">
         <input type="button" class="btn btn-success" onclick="start()" id="Start" value="시작">
       </div>
       </div>
@@ -30,27 +46,23 @@
     window.$ = window.jQuery = require('jquery')
     </script>
     <script>
-    var count = 30
+    var count = 5
     var json,no
-
-
+    var words
     $.getJSON("word.json", function (data) {
       json = data.text
       // console.log(data.text);
-      no = json.length-1
-      console.log(no);
+      no = json.length -1
       console.log(json)
       $('#word').text(json[no])
 
     })
 
     function start(){
-      time
       var time = setInterval(function() {
         $('#count').text(count--);
-        if(count == -2){
+        if(count == -1){
           clearInterval(time)
-          alert("끄으으으으으ㅌ")
         }
       }, 1000)
     }
@@ -62,7 +74,14 @@
           json.pop()
           console.log(json);
           $('#word').text(json[no])
+
         }
+        if ($('#word').text() != $('#typing').val()){
+            console.log("dddd")
+
+        }
+
+
       }
     }
 

@@ -1,0 +1,12 @@
+/* Binary I/O strem : 파일 읽기
+ * 
+ */
+package step16;
+
+public class Test01_1 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

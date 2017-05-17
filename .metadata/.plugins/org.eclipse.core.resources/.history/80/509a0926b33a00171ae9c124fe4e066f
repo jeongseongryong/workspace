@@ -1,0 +1,8 @@
+package step15;
+
+public enum SchoolLevel {
+	 HIGH_SCHOOL ,
+	 BACHELOR ,
+	 MASTER ,
+	 DOCTOR ,
+}

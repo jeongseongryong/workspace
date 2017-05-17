@@ -9,4 +9,8 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.lang.IncompatibleClassChangeError"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="step08.Test06_2_ArrayList"/>
+<fullyQualifiedTypeName name="step15.SchoolLevel"/>
 </qualifiedTypeNameHistroy>

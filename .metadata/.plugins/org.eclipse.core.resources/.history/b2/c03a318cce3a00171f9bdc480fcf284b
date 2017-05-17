@@ -1,0 +1,12 @@
+/* File 다루기 - File 클래스 사용법
+ * 
+ */
+package step16;
+
+public class Test01_1 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
