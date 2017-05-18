@@ -1,0 +1,14 @@
+package Exercise;
+
+
+public class exercise {
+	public static float divide(float a, float b) {
+		return a/b;
+	}
+		public static void main(String[] args) {
+			System.out.println(divide(10, 2));
+			System.out.println(divide(0,  2));
+			System.out.println(divide(10, 0));
+		
+	}
+}

@@ -1,0 +1,19 @@
+/*예외처리 :finally 블록
+ * 
+ */
+package step17;
+
+public class Test13 {	
+
+	
+	public static void main(String[] args) {
+		try {
+			if (args.length < 1)
+				throw new Exception("한 개의 숫자를 붙이시오!")
+		}
+		
+	}
+		
+}
+
+

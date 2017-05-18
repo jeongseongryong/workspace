@@ -1,0 +1,60 @@
+/* 예외처리 : 사용자 정의 예외 던지기
+ */
+package step17;
+
+public class Test07 {	
+	static class InvalidValueScopeException extends IllegalArgumentException {
+
+		public InvalidValueScopeException() { 
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+		public InvalidValueScopeException(String message, Throwable cause) { // 문자열 다른 예외정보
+			super(message, cause);
+			// TODO Auto-generated constructor stub
+		}
+
+		public InvalidValueScopeException(String s) { //문자열
+			super(s);
+			// TODO Auto-generated constructor stub
+		}
+
+		public InvalidValueScopeException(Throwable cause) { // 다른예외정보
+			super(cause);
+			// TODO Auto-generated constructor stub
+		}
+		
+//		public InvalidValueScopeException() {} 
+//		
+//		public InvalidValueScopeException(String message) {
+//			super(message);
+//		}
+		
+		
+	}
+	public static void main(String[] args) {
+		try {
+			if(args.length < 1)
+				throw new IllegalArgumentException("애플리케이션 아규먼트가 없습니다.");
+			
+			int age = Integer.parseInt(args[0]);
+		
+			if (age < 1)
+				throw new InvalidValueScopeException("나이가 유효하지 않습니다");
+			
+			System.out.println(age);
+			
+		}catch (NumberFormatException e){
+			System.out.println("애플리케이션의 아규먼트가 숫자가 아닙니다.");
+			
+		}catch (Exception ex) {
+			System.out.println("나이 값이 유효하지 않습니다!.");
+			
+		}catch (Throwable ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+
+}

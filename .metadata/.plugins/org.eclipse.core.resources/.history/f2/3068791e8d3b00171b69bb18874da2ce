@@ -1,0 +1,37 @@
+<!-- AJAX 사용법 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <link rel="stylesheet"href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+  .container {
+ 		position : relative;
+  	border: 1px solid black;
+    width: 600px;
+    height: 600px;
+    margin: 0px auto;
+  }
+ 	#sun{
+ 	font-weight: bold;
+ 	color: red;'
+ 	}
+  </style>
+</head>
+<body>
+<div class="container">
+<span id = "sun">S</span>
+</div> <!--div Container-->
+
+
+
+<script>
+"use strict"
+window.$ = window.jquery = require('jquery')
+					
+  
+</script>
+
+</body>
+</html>

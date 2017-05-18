@@ -1,0 +1,23 @@
+/* File 다루기 - File 클래스 사용법
+ * 
+ */
+package step16;
+
+import java.io.File;
+
+public class Test01_1 {
+
+	public static void main(String[] args) throws Exception {
+		File f = new File("../.."); //현재 폴더 정보를 가져온다.
+		
+		System.out.printf("getAbsolutePath()= %s\n",f.getAbsolutePath());
+		
+		System.out.printf("getAbsolutePath()= %s\n",f.getCanonicalFile());
+		
+		// File의 경로가 가리키는 디스크의 여유 공간을 바이트 단위로 리턴한다.
+		System.out.printf("f.getFreeSpace() = %d\n",f.getFreeSpace());
+		
+		System.out.printf("f.getName() = %d\n", f.getName());
+	}
+
+}

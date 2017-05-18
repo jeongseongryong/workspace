@@ -1,0 +1,19 @@
+package Exercise;
+
+
+public class exercise {
+	public static float divide(float a, float b) {
+		if (b == 0) {
+			return -121255f;
+		}
+		return a/b;
+	}
+		public static void main(String[] args) {
+			float result = divide(10, 2);
+			if (result == 121255f) {
+				System.out.println("0 으로 나눌 수 없습니다.");
+			} else {
+				System.out.println(result);
+			}
+	}
+}

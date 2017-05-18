@@ -1,0 +1,23 @@
+/* 예외처리 :throw 명령
+ * 
+ */
+package step17;
+
+public class Test04 {
+	
+
+	public static void main(String[] args) {
+		try {
+		int age = 10;
+		
+		if (age < 0)
+			throw new Throwable("나이가 유효하지 않습니다");
+		System.out.println(age);
+		
+		}catch (Throwable ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+
+}

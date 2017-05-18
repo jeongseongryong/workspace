@@ -1,0 +1,31 @@
+/* File 다루기 - File 클래스 사용법
+ * 
+ */
+package step16;
+
+import java.io.File;
+
+public class Test01_1 {
+
+	public static void main(String[] args) throws Exception {
+		File f = new File("./build.gradle"); //현재 폴더 정보를 가져온다.
+		
+		System.out.printf("getAbsolutePath()= %s\n",f.getAbsolutePath());
+		
+		System.out.printf("getAbsolutePath()= %s\n",f.getCanonicalFile());
+		
+		// File의 경로가 가리키는 디스크의 여유 공간을 바이트 단위로 리턴한다.
+		System.out.printf("getFreeSpace() = %d\n",f.getFreeSpace());
+		
+		System.out.printf("getTotalSpace() = %d\n",f.getTotalSpace());
+		
+		// 여유 공간중에서 사용 가능한디스크의 총 크기를 바이트 단위로 리턴한것
+		System.out.printf("getUsableSpace() = %d\n",f.getUsableSpace());
+		
+		// 디렉토리명 또는 파일명
+		System.out.printf("getName() = %s\n", f.getName());
+		System.out.printf("getPath()= %s\n",f.getPath());
+		
+	}
+
+}
