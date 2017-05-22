@@ -1,0 +1,13 @@
+package step16;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+
+public class MyDataInputStream extends FileInputStream {
+	
+	public MyDataInputStream(String name) throws FileNotFoundException {
+		super(name);
+	}
+
+}

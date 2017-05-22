@@ -1,0 +1,32 @@
+/* 데이터 프로세싱 스트림 클래스 - ObjectOutputStream 도입 전
+ */
+package step16;
+
+import java.io.FileOutputStream;
+
+
+public class Test05_1_out {
+	
+		
+
+	public static void main(String[] args) throws Exception {
+		Student s =new Student ("홍길동", 100, 90, 80, false);
+		FileOutputStream out0 = new FileOutputStream("temp/Test05_1.data");
+		java.io.DataOutputStream out = new java.io.DataOutputStream(out0);
+			
+		out.writeUTF(s.name);
+		out.writeint(s.kor);
+		out.writeint(s.eng);
+		out.writeint(s.math);
+		out.writeint(s.sum);
+		out.writefloat(s.aver);
+		out.writeboolean(s.working);
+		
+		
+		out.close();
+	}
+		
+		
+}
+
+

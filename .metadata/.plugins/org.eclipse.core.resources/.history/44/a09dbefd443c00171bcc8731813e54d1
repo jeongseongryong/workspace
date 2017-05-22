@@ -1,0 +1,7 @@
+package step16;
+
+import java.io.FileOutputStream;
+
+public class MyDataInputStream extends FileIntputStream {
+
+}

@@ -1,0 +1,38 @@
+package step16;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+
+public class MyDataInputStream extends FileInputStream {
+	
+	public MyDataInputStream(String name) throws FileNotFoundException {
+		super(name);
+	}
+
+	public void writeByte(int b) throws IOException {
+		this.read(b);
+	}
+	
+	public void writeShort(int s) throws IOException {
+		this.read(s << 8);
+		this.read(s);
+	}
+	
+	public void writeInt(int i) throws IOException {
+		this.read(i << 24);
+		this.read(i << 16);
+		this.read(i << 8);
+		this.read(i);
+	}
+	
+	public void writeUTF(String str) throws IOException {
+		byte[] bytes = str.getBytes("UTF-8");
+		int len = bytes.length;	
+		this.read(len << 8);
+		this.read(len);
+	}
+	
+	
+}

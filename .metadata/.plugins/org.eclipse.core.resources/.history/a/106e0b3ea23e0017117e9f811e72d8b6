@@ -1,0 +1,19 @@
+/* 데이터 프로세싱 스트림 클래스 - ObjectInputStream 도입 전
+ */
+package step16;
+
+import java.io.FileInputStream;
+
+
+public class Test05_1_in {
+
+	public static void main(String[] args) throws Exception {
+		FileInputStream in0 = new FileInputStream("temp/Test05_1.data");
+		java.io.DataInputStream in = new  java.io.DataInputStream(in0);
+		
+		Student s = new Student();
+		
+		in.close();
+	}
+
+}

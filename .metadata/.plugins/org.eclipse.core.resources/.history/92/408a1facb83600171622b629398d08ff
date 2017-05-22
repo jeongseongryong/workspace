@@ -1,7 +1,0 @@
-package step09.ex3;
-
-public class BitStudent extends Student {
-	String school;
-
-}
-

@@ -1,8 +1,0 @@
-package step09.ex4;
-
-public class FreeStudent2 extends Member {
-	String schoolName;
-	boolean working;
-	int grade;
-}
-

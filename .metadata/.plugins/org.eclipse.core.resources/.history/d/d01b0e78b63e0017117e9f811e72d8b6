@@ -1,0 +1,8 @@
+package step16;
+
+public class Snippet {
+	public static void main(String[] args) {
+		this.sum = kor + eng + math;
+	}
+}
+

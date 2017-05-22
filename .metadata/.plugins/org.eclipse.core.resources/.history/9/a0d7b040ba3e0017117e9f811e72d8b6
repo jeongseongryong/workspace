@@ -1,0 +1,26 @@
+/* character stream 클래스 : FileWriter vs FileInputStream
+ */
+package step16;
+
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+
+
+public class Test06_1_out {
+	
+		
+
+	public static void main(String[] args) throws Exception {
+		FileOutputStream out = new FileOutputStream("Test06_1_byte.data");
+		out.close();
+		
+		
+		
+		FileWriter out = new FileWriter("Test06_1_byte.data");
+		out.close();
+	}
+		
+		
+}
+
+

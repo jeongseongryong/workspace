@@ -1,0 +1,29 @@
+/*예외처리 : 자원 자동 해제 try ~ catch ~블록(try-with-resources 문장)
+ * 
+ */
+package step17;
+
+import java.io.FileInputStream;
+
+public class Test14 {	
+
+	
+	public static void main(String[] args) {
+		try {
+			FileInputStream in = new FileInputStream(file)
+			}
+			System.out.println(Integer.parseInt(args[0]));
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			
+			System.out.println("오호라~~~");
+		}
+		System.out.println("안녕!");
+	}
+		
+}
+
+
