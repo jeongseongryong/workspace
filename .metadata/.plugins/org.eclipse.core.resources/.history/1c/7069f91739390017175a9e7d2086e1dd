@@ -1,9 +1,0 @@
-package step10.ex4;
-
-public class C extends B {
-	int c;
-	
-	public () { 
-		System.out.println("C()");
-	}
-}
