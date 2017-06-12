@@ -1,0 +1,39 @@
+/* service() 파라미터 II : ServletRequest III - 한들 파라미터 값 깨지는 현상
+ * GET 요청의 파라미터 값 깨지는 경우
+ * -톰캣 8부터는 깨지지 않는다.
+ * -톰캣 7.x 이하에서는 다음과 같이 설정하면 된다.
+ * 	[server.xml]
+ * <Connector connectionTimeout="20000"
+ * 						port="8080" 
+ *  					protocol="HTTP/1.1" 
+ *  					redirectPort="8443"
+ *  					URIEnconding="UTF-8"/>
+ *  	"URIEncoding" 속성을 추가한다.
+ * POST 요청의 파라미터 값 깨지는 경우
+ * 
+ */
+package step02;
+
+import java.io.IOException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet(urlPatterns="/step02/Servlet03") //
+public class Servlet03 extends GenericServlet {
+	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		System.out.printf("parameter(name): %s\n",req.getParameter("name"));//name 파라미터값
+		System.out.printf("parameter(age): %s\n",req.getParameter("age")); // age 파라미터값
+		
+	}
+
+	
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 관리</title>
+</head>
+<body>
+<h1>회원 등록</h1>
+
+<form action ="Servlet03" method="POST">
+이름:<input type="text" name ="name"><br>
+전화:<input type="text" name ="tel"><br>
+<button>POST 요청</button>
+</form>
+
+</body>
+</html>

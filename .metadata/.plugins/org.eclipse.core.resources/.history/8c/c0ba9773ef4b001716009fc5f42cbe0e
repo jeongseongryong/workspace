@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+int a =10;
+if (a > 0) {
+	System.out.println("okok");
+}
+
+/*
+repositories {
+    jcenter()
+}
+
+dependencies {
+    
+    compile 'org.slf4j:slf4j-api:1.7.21' 
+    testCompile 'junit:junit:4.12'
+}
+*/

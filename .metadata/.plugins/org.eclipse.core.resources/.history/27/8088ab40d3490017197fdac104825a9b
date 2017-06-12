@@ -1,0 +1,11 @@
+package step04;
+
+public class Classroom {
+	int no;
+	String name;
+	@Override
+	public String toString() {
+		return "Classroom [no=" + no + ", name=" + name + "]";
+	}
+	
+}

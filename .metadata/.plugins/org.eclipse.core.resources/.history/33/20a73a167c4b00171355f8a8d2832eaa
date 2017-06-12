@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>강의 관리</title>
+</head>
+<body>
+<h1>강의 등록</h1>
+<form action ="Servlet03" method="POST">
+제목:<input type="text" name ="titl"><br>
+설명:<input type="text" name ="dscp"><br>
+시작일:<input type="date" name ="sdt"><br>
+종료일:<input type="date" name ="edt"><br>
+수강 가능 인원:<input type="number" name ="qty"><br>
+수업료:<input type="number" name ="pric"><br>
+총시간:<input type="number" name ="thrs"><br>
+매니저:<input  type="number" name="mrno"><br>
+    
+        
+<button>등록</button>
+</form>
+
+</body>
+</html>

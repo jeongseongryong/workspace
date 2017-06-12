@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DBConnectionPool.java&apos; to &apos;project01/src/main/java/bitcamp.java93.util&apos;&#x0D;&#x0A;- Original project: &apos;java93&apos;&#x0D;&#x0A;- Destination element: &apos;project01/src/main/java/bitcamp.java93.util&apos;&#x0D;&#x0A;- Original element: &apos;DBConnectionPool.java&apos;" description="Copy file" destination="=project01/src\/main\/java&lt;bitcamp.java93.util" element1="project01-bit/src/main/java/bitcamp/java93/util/DBConnectionPool.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1496909247731" units="0" version="1.0"/>
+</session>

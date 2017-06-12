@@ -2,90 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>타자연습</title>
+    <title>계산</title>
     <link rel="stylesheet"href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
-    <style>
-    .container {
-      border: 2px solid black;
-      width: 500px;
-      height: 500px;
-      background-color: black;
-    }
-    span {
-      font-size: 30px;
-      font-family: sans-serif;
-      position: relative;
-
-
-    }
-
-    #typing {
-      font-size: 30px;
-    }
-
-    </style>
   <body>
-      <div class="container">
-        <h1>Typing</h1>
-      <div class="">
-        <span type="text" name="Word" id="word"><span>
-      </div>
-      <div>
-        <span type="text" name="Count" id="count">30초<span>
-      </div>
-      <div>
-        <!-- <span type="text" name="Success" id="success">성공:  실패:  <span> -->
-      </div>
-      <div>
-        <input type="text" name="Typing" id="typing" onkeydown="hit()" style="background-color:transparent;">
-        <input type="button" class="btn btn-success" onclick="start()" id="Start" value="시작">
-      </div>
-      </div>
-    <script>
-    window.$ = window.jQuery = require('jquery')
-    </script>
-    <script>
-    var count = 5
-    var json,no
-    var words
-    $.getJSON("word.json", function (data) {
-      json = data.text
-      // console.log(data.text);
-      no = json.length -1
-      console.log(json)
-      $('#word').text(json[no])
-
-    })
-
-    function start(){
-      var time = setInterval(function() {
-        $('#count').text(count--);
-        if(count == -1){
-          clearInterval(time)
-        }
-      }, 1000)
-    }
-
-    function hit() {
-      if(event.keyCode == 13) {
-        if($('#word').text() == $('#typing').val()){
-          no--
-          json.pop()
-          console.log(json);
-          $('#word').text(json[no])
-
-        }
-        if ($('#word').text() != $('#typing').val()){
-            console.log("dddd")
-
-        }
 
 
-      }
-    }
 
 
-    </script>
   </body>
 </html>
