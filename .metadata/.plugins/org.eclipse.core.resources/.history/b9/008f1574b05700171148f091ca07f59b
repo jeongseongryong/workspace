@@ -1,0 +1,7 @@
+package step28.ex4;
+
+public class ProjectDao {
+	project selecOone(int no) throws Exception {
+		
+	}
+}

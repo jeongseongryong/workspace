@@ -1,0 +1,14 @@
+package step26;
+
+public class test01 {
+	
+	
+	public static void main(String[] args) {
+		//1) 인스턴스를 통해서 얻기
+		String obj = new String("Hello");
+		Class<?> c1 = obj.getClass();
+		
+		
+	}
+	
+}

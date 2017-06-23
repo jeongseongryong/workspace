@@ -1,0 +1,42 @@
+package bitcamp.java93.listener;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import static org.reflections.ReflectionUtils.*; // static 멤버를 이 클래스에서 찾아라!
+import org.reflections.Reflections;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import bitcamp.java93.annotation.Component;
+import bitcamp.java93.control.Controller;
+import bitcamp.java93.util.DBConnectionPool;
+
+@WebListener
+public class ContextLoaderListener implements ServletContextListener {
+	HashMap<String, Object> objMap = new HashMap<>(); 
+
+  @Override
+  public void contextInitialized(ServletContextEvent sce) {
+    try {
+    	ApplicationContext appCtx = new ClassPathXmlApplicationContext();
+    	
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  
+  @Override
+  public void contextDestroyed(ServletContextEvent sce) {
+  }
+}

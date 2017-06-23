@@ -1,0 +1,73 @@
+package bitcamp.java93.listener;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import org.reflections.Reflections;
+
+import bitcamp.java93.annotation.Component;
+import bitcamp.java93.util.DBConnectionPool;
+
+@WebListener
+public class ContextLoaderListener implements ServletContextListener {
+	HashMap<String, Object> objMap = new HashMap<>(); 
+
+  @Override
+  public void contextInitialized(ServletContextEvent sce) {
+  	ServletContext sc = sce.getServletContext();
+    // 웹 애플리케이션이 시작될 때 DAO를 생성하여 ServletContext 보관소에 저장한다.
+    String jdbcDriver = "com.mysql.jdbc.Driver";
+    String jdbcUrl = "jdbc:mysql://localhost:3306/webappdb";
+    String jdbcUsername = "webapp";
+    String jdbcPassword = "1111";
+    
+    try {
+      DBConnectionPool conPool = new DBConnectionPool(
+          jdbcDriver, jdbcUrl, jdbcUsername, jdbcPassword);
+      objMap.put("conPool", conPool);
+      
+      createObject("bitcamp.java93"); // 객체생성
+      injectDependencies(); // 의존 객체 주입
+     
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void createObject(String packageName) throws Exception {
+  	 
+    Reflections reflections = new Reflections(packageName);
+    
+    Set<Class<?>> components = 
+        reflections.getTypesAnnotatedWith(Component.class);
+    
+    Component anno = null;
+    for (Class<?> clazz : components) {
+    	anno = clazz.getAnnotation(Component.class);
+    	Object obj = clazz.newInstance();
+    	if (anno.value().equals("")) {
+    		objMap.put(clazz.getCanonicalName(),obj);
+    	} else {
+      	objMap.put(anno.value(), obj);
+      }
+    }  	
+  }
+  private void injectDependencies() throws Exception {
+  	Collection<Object> objList = objMap.values();
+  	for (Object obj : objList) {
+  		obj getClass().getClass().getMethods();
+  	}
+  }
+  
+  @Override
+  public void contextDestroyed(ServletContextEvent sce) {
+  }
+}

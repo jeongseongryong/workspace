@@ -1,0 +1,29 @@
+
+
+
+package step27.ex2;
+
+public class Engine {
+	int value;
+	int cylinder;
+	
+	@Override
+	public String toString() {
+		return "Engine [value=" + value + ", cylinder=" + cylinder + "]";
+	}
+	
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	public int getCylinder() {
+		return cylinder;
+	}
+	public void setCylinder(int cylinder) {
+		this.cylinder = cylinder;
+	}
+	
+	
+}

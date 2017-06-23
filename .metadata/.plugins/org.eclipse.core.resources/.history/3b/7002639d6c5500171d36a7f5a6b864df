@@ -1,0 +1,15 @@
+package step27.ex1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test02 {
+
+	public static void main(String[] args) throws Exception {
+		File file = new File("step27/ex1/application-context-01.xm1")
+		//ApplicationContext ctx =
+				//new ClassPathXmlApplicationContext("step27/ex1/application-context-01.xm1");
+
+	}
+
+}

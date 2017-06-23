@@ -1,0 +1,15 @@
+package step26;
+
+public class test02 {
+	
+	
+	public static void main(String[] args) throws Exception {
+		Class<?> c1 = String.class();
+		
+		System.out.println(c1.getName());
+		sys
+		
+		
+	}
+	
+}

@@ -1,0 +1,16 @@
+package step26;
+
+import java.lang.reflect.Method;
+
+public class Test05 {
+	
+	
+	public static void main(String[] args) throws Exception { //스태틱 환경은
+		Class<?> clazz = MyClass.class;
+		
+		Method m = clazz.getMethod("toString");
+		System.out.println(m);
+		
+	}
+	
+}

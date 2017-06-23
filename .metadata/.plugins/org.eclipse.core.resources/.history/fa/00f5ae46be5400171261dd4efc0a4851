@@ -1,0 +1,86 @@
+package bitcamp.java93.listener;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Set;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import static org.reflections.ReflectionUtils.*; // static 멤버를 이 클래스에서 찾아라!
+import org.reflections.Reflections;
+
+import bitcamp.java93.annotation.Component;
+import bitcamp.java93.util.DBConnectionPool;
+
+@WebListener
+public class ContextLoaderListener implements ServletContextListener {
+	HashMap<String, Object> objMap = new HashMap<>(); 
+
+  @Override
+  public void contextInitialized(ServletContextEvent sce) {
+  	ServletContext sc = sce.getServletContext();
+    // 웹 애플리케이션이 시작될 때 DAO를 생성하여 ServletContext 보관소에 저장한다.
+    String jdbcDriver = "com.mysql.jdbc.Driver";
+    String jdbcUrl = "jdbc:mysql://localhost:3306/webappdb";
+    String jdbcUsername = "webapp";
+    String jdbcPassword = "1111";
+    
+    try {
+      DBConnectionPool conPool = new DBConnectionPool(
+          jdbcDriver, jdbcUrl, jdbcUsername, jdbcPassword);
+      objMap.put("conPool", conPool);
+      
+      createObject("bitcamp.java93"); // 객체생성
+      injectDependencies(); // 의존 객체 주입
+     
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void createObject(String packageName) throws Exception {
+  	 
+    Reflections reflections = new Reflections(packageName);
+    
+    Set<Class<?>> components = 
+        reflections.getTypesAnnotatedWith(Component.class);
+    
+    Component anno = null;
+    for (Class<?> clazz : components) {
+    	anno = clazz.getAnnotation(Component.class);
+    	Object obj = clazz.newInstance();
+    	if (anno.value().equals("")) {
+    		objMap.put(clazz.getCanonicalName(),obj);
+    	} else {
+      	objMap.put(anno.value(), obj);
+      }
+    }  	
+  }
+  private void injectDependencies() throws Exception {
+  	Collection<Object> objList = objMap.values();
+  	for (Object obj : objList) {
+  		Set<Method> setters = getAllMethods(
+  				obj.getClass(), // 주어진 클래스로 부터
+  				withModifier(Modifier.PUBLIC), //접근범위가 public
+  				withPrefix("get"), // 메서드의 이름이 set으로 시작,
+  				withParametersCount(1)); // 파라미터 개수는 한개인 메서드들을 찾는다.
+  		for (Method m : setters) {
+  			Class<?> paramType = m.getParameterTypes()[0];
+  			Object dependency = findDependency(paramType);
+  			if (dependency != null) {
+  				m.invoke(obj, dependency);
+  			}
+  		}
+  	}
+  }
+  
+  @Override
+  public void contextDestroyed(ServletContextEvent sce) {
+  }
+}

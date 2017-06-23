@@ -1,0 +1,12 @@
+package step26;
+
+public class test03 {
+	
+	
+	public static void main(String[] args) throws Exception {
+		Class<?> c1 = String.class;
+		
+		c1.getMethods();
+	}
+	
+}
