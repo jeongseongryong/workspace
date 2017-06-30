@@ -1,35 +1,40 @@
-/*유틸리티 클래스 II : properties 클래스
- */
+/* 유틸리티 클래스 : properties 클래스 
+ * => .properties 파일을 다룰 때 주로 사용한다.
+ * => 파일 형식은 다음과 같다.
+ *    key=value
+ *    key=value
+ *    ...
+ * */
 package step08;
 
-import java.sql.Date;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
-public class Test08_1  {
-	
-	public static void main(String[] args) {
-	ArrayList dateList = new ArrayList();
+public class Test08_1 {
 
-		dateList.add(Date.valueOf("2017-3-1"));
-		dateList.add(Date.valueOf("2017-5-3"));
-		dateList.add(Date.valueOf("2017-5-5"));
-		dateList.add(Date.valueOf("2017-5-9"));
-		Date d1 = Date.valueOf("2017-6-6");
-		dateList.add(d1);
-		dateList.add(d1);
-		
-		dateList.add(4, Date.valueOf("2017-2-22")); // 정해진 배열의 추가	
-		
-		Object removedObj = dateList.remove(3); // 삭제
-		
-		Object oldObj = dateList.set(1, Date.valueOf("2017-5-4")); // 변경
-		
-			for(int i = 0; i < dateList.size(); i++){
-				System.out.println(dateList.get(i));
-		}
-			System.out.println("=>" + removedObj);
-			System.out.println("=>" + oldObj);
-	}	
-}	
+  public static void main(String[] args) throws FileNotFoundException, IOException {
+    System.out.println("step08 Test08_1 실행");
+    System.out.println();
+    
+    Properties props = new Properties();
+    
+    Properties pro = new Properties();
+    
+    props.load(new FileReader("test.properties"));
+    
+    System.out.println(props.getProperty("key1"));
+    System.out.println(props.getProperty("key2"));
+    System.out.println(props.getProperty("key3"));
+    System.out.println(props.getProperty("key4"));
+    
+    System.out.println("------------------------");
+    
+    System.out.println(props.get("key1"));
+    System.out.println(props.get("key2"));
+    System.out.println(props.get("key3"));
+    System.out.println(props.get("key4"));
+  }
 
-
+}

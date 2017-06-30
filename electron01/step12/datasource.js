@@ -1,5 +1,4 @@
-// 데이터 처리를 담당하는 자바스크립트
-// => DAO(Data Access Object)
+//connection 객체를 준비
 "use strict"
 const mysql = require('mysql')
 const connection = mysql.createConnection({

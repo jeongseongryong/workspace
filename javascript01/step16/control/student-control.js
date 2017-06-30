@@ -23,27 +23,27 @@ router.get('/list.json', (request, response) => {
     pageSize = parseInt(request.query.pageSize)
   }
   studentService.list(pageNo, pageSize, function(results, totalCount) {
-    response.json({'list': results, 'totalCount': totalCount})
+    response.json({'list' : results, 'totalCount': totalCount})
   }, function(error) {
     response.status(200)
-            .set('Content-Type', 'text/plain;charset=UTF-8')
-            .end('error')
-    console.log(error)
-  })
+    .set('Content-Type', 'text/plain;charset=UTF-8')
+    .end('error')
+     console.log(error)
 })
+})// get
 
 router.get('/detail.json', function(request, response) {
   var no = parseInt(request.query.no)
   studentService.detail(no, function(result) {
     response.json(result)
-
   }, function(error) {
-    response.status(200)
-            .set('Content-Type', 'text/plain;charset=UTF-8')
-            .end('error')
-    console.log(error)
-  })
+      response.status(200)
+      .set('Content-Type', 'text/plain;charset=UTF-8')
+      .end('error')
+       console.log(error)
+
 })
+}) // get(detail)
 
 router.post('/update.json', function(request, response) {
   studentService.update({
@@ -56,12 +56,11 @@ router.post('/update.json', function(request, response) {
     password: '1111'
   }, function(result) {
     response.json({'result': 'yes'})
-
   }, function(error) {
     response.status(200)
-            .set('Content-Type', 'text/plain;charset=UTF-8')
-            .end('error')
-    console.log(error)
+    .set('Content-Type', 'text/plain;charset=UTF-8')
+    .end('error')
+     console.log(error)
   })
 })
 
@@ -71,11 +70,12 @@ router.get('/delete.json', function(request, response) {
     response.json({'result': 'yes'})
   }, function(error) {
     response.status(200)
-            .set('Content-Type', 'text/plain;charset=UTF-8')
-            .end('error')
-    console.log(error)
+    .set('Content-Type', 'text/plain;charset=UTF-8')
+    .end('error')
+     console.log(error)
   })
 })
+
 
 router.post('/add.json', function(request, response) {
   studentService.insert({
@@ -90,9 +90,9 @@ router.post('/add.json', function(request, response) {
 
   }, function(error) {
     response.status(200)
-            .set('Content-Type', 'text/plain;charset=UTF-8')
-            .end('error')
-    console.log(error)
+    .set('Content-Type', 'text/plain;charset=UTF-8')
+    .end('error')
+     console.log(error)
   })
 })
 

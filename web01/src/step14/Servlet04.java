@@ -1,5 +1,5 @@
-/* 파일 업로드 : 업로드 파일 저장하기
- */
+/* 파일 업로드 : 업로드 파일 저장하기 */
+
 package step14;
 
 import java.io.File;
@@ -21,37 +21,36 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 @WebServlet("/step14/Servlet04")
 @SuppressWarnings("serial")
-public class Servlet04 extends HttpServlet {
+public class Servlet04 extends HttpServlet{
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    
     DiskFileItemFactory itemFactory = new DiskFileItemFactory();
     
-    
-    ServletFileUpload multipartDataParser = new ServletFileUpload(itemFactory);
+    ServletFileUpload multipartDataparser = new ServletFileUpload(itemFactory);
     
     try {
-      
-      List<FileItem> parts = multipartDataParser.parseRequest(req);
-    
+      List<FileItem> parts = multipartDataparser.parseRequest(req);
       
       HashMap<String,FileItem> partMap = new HashMap<>();
       for (FileItem part : parts) {
         partMap.put(part.getFieldName(), part);
       }
       
-      String name = partMap.get("name").getString("UTF-8"); 
+      String name = partMap.get("name").getString("UTF-8");
       
       FileItem part = partMap.get("file1");
-      String file1 = part.getName();
-      ServletContext sc = this.getServletContext();
-      File uploadPath = new File(sc.getRealPath("/step14/upload/" + file1));
       
+      String file1 = part.getName();
+      
+      ServletContext sc = this.getServletContext();
+      
+      File uploadPath = new File(sc.getRealPath("/step14/upload/" + file1));
       part.write(uploadPath);
       
       part = partMap.get("file2");
       String file2 = part.getName();
-      uploadPath = new File(sc.getRealPath("/step14/upload/" + file2)); // 경로 정보만 보관한다.
+      uploadPath = new File(sc.getRealPath("step14/upload/" + file2));
+      // file 객체는 파일데이터를 가지고있는놈이아니라 파일에 대한 경로 정보를 가지고있는놈
       
       part.write(uploadPath);
       
@@ -61,13 +60,12 @@ public class Servlet04 extends HttpServlet {
       out.printf("name=%s\n", name);
       out.printf("file1=%s\n", file1);
       out.printf("file2=%s\n", file2);
-
+      
     } catch (Exception e) {
       throw new ServletException(e);
     }
     
   }
-
   
   
 }

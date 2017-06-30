@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
-   <bean id="c1" class="step27.ex2.Car"/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
 
-   <bean id="c2" class="step27.ex2.Car">
-      <constructor-arg value="티코" />
-      <constructor-arg value="800" />
-   </bean>
-	
-   <!-- 생성자의 파라미터 값을 지정할 때 파라미터 순서를 지정할 수 있다. -->
-   <bean id="c3" class="step27.ex2.Car">
-      <constructor-arg index="1" value="1998" />
-      <constructor-arg index="0" value="소나타" />
-   </bean>
-
-
-   <!-- 생성자의 파라미터 값을 지정할 때 타입도 지정할 수 있다.
-           =>  XML에서 값을 지정할 대 문자열이다.
-           => 이 문자열은 파라미터의 타입에 따라 적절히 형변환된다.
-           => 단 원시타입(byte, short, int, long, float, double, boolean, char)에 대해서만 가능
-    -->
-   <bean id="c4" class="step27.ex2.Car">
-      <constructor-arg index="1" type="int" value="3000" />
-      <constructor-arg index="0" type="java.lang.String"  value="그랜저" />
-   </bean>
-
+	<bean id="c1" class="step27.ex2.Car" />
+  <bean id="c2" class="step27.ex2.Car" >
+    <constructor-arg value="랜드로버 디스커버리"></constructor-arg>
+    <constructor-arg value="3000"></constructor-arg>
+  </bean>
+  
+  <bean id="c3" class="step27.ex2.Car" >
+    <constructor-arg index="1" value="3500"></constructor-arg>
+    <constructor-arg index="0" value="포드 익스플로러"></constructor-arg>
+  </bean>
+  
+    <bean id="c4" class="step27.ex2.Car" >
+    <constructor-arg index="1" type="int"  value="3498"></constructor-arg>
+    <constructor-arg index="0" type="String" value="인피니티 Q50S"></constructor-arg>
+  </bean>
+  
 </beans>

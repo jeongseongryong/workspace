@@ -1,33 +1,37 @@
-/*다형성 - 다형적 변수 II
- * =>어떤 레퍼런스 변수는 그타입의 인스턴스 뿐만아니라,
- * 	  그 타입의 서브 클래스의 인스턴스까지 저장할 수 있다.
- */
+/* 다형성 - 다형적 변수 II */
+
 package step10.ex2;
 
 public class Test02 {
 
-	public static void main(String[] args) {
-		// Member m = new Member(); // OK
-		// Member m = new Student(); // OK member의  변수 + Student의 변수 
-	  Member m = new FreeStudent(); // OK member의  변수 + Student의 변수 + FreeStudent의 변수
-		
-		m.name = "홍길동";
-		m.id = "hong";
-		m.password = "1111";
-		m.tel = "1111-1111";
-		m.email = "hong@test.com";
-		
-		//Student s = new Student(); // OK
-		Student s = new FreeStudent(); // OK
-		//Student s = new Member(); // Error .Member의  변수
-		s.name = "홍길동";
-		s.id = "hong";
-		s.password = "1111";
-		s.tel = "1111-1111";
-		s.email = "hong@test.com";
-		s.schoolName = "비트대학교";
-		s.grade = 4;
-		
-	}
+  public static void main(String[] args) {
+    
+//    Member m = new Member();
+//    Member m = new Student();
+    Member m = new FreeStudent();
+    
+    m.name = "홍길동";
+    m.id = "hong";
+    m.password = "1111";
+    m.tel = "1111-1111";
+    m.email = "hong@test.com";
+    
+//    Student s = new Student();
+//    Student s = new FreeStudent();
+//    Student s = new Member(); // Member의 변수밖에 없다 Student 에 있는 변수를 사용할수가없다.
+    
+    
+    s.name = "홍길동";
+    s.id = "hong";
+    s.password = "1111";
+    s.tel = "1111-1111";
+    s.email = "hong@test.com";
+    s.schoolName = "비트대학교";
+    s.grade = 4;
+    
+    
+    
+    
+  }
 
 }

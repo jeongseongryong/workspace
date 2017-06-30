@@ -1,27 +1,23 @@
 package step27.ex13;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Car {
   String model;
   int cc;
-  //방법1
-  //@Resource(name="delta")
   
-  //방법2
-  @Autowired
-  @Qualifier("delta")
+  @Resource(name="delta")
   Engine engine;
+  
+  @Override
+  public String toString() {
+    return "Car [model=" + model + ", cc=" + cc + ", engine=" + engine + "]";
+  }
 
-	@Override
-	public String toString() {
-		return "Car [model=" + model + ", cc=" + cc + ", engine=" + engine + "]";
-	}
-
-	public Car() {
+  public Car() {
     System.out.println("Car()");
     this.model = "기본자동차";
     this.cc = 900;
@@ -34,7 +30,7 @@ public class Car {
   }
   
   public Car(String model, int cc, Engine engine) {
-    System.out.println("Car(String, int, Engine)");
+    System.out.println("Car(String, int, engine)");
     this.model = model;
     this.cc = cc;
     this.engine = engine;
@@ -43,15 +39,19 @@ public class Car {
   public String getModel() {
     return model;
   }
+  
   public void setModel(String model) {
     System.out.println("setModel()");
     this.model = model;
   }
+  
   public int getCc() {
     return cc;
   }
+  
   public void setCc(int cc) {
     System.out.println("setCc()");
     this.cc = cc;
   }
+  
 }

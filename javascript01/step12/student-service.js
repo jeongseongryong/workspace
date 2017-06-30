@@ -1,6 +1,7 @@
 "use strict"
 
 module.exports = {
+
   setStudentDao(dao) {
     this.studentDao = dao
   },

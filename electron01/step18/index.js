@@ -7,22 +7,26 @@ var host = $('#host'),
     message = $('#message'),
     messageBox = $('#messageBox');
 
-
 var socket = new net.Socket()
-
 
 var buffer = ''
 
+
+message.keypress(function(e) {
+  if(e.which == 13) {
+    socket.write(message.val()+ '\n')
+    message.val('')
+  }
+})
+
 socket.on('data', (data) => {
   buffer += data.toString()
-
 
   var value = null
   while (true) {
     var newLineIndex = buffer.indexOf('\n')
     if ( newLineIndex < 0)
       return;
-
 
     value = buffer.substring(0, newLineIndex)
     buffer = buffer.substring(newLineIndex + 1)
@@ -32,8 +36,7 @@ socket.on('data', (data) => {
   }
 
   messageBox.val(messageBox.val() + value + '\n')
-  messageBox.scrollTop(messageBox.prop('scrollHeight'));
-
+  messageBox.scrollTop(messageBox.prop('scrollHeight'))
 
 })
 
@@ -48,7 +51,5 @@ $('#connectBtn').click(() => {
 })
 
 $('#sendBtn').click(() => {
-
-  socket.write(message.val() + '\n')
-
+  socket.write(message.val()+ '\n')
 })

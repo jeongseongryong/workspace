@@ -1,5 +1,4 @@
-/*역할: 쿠키로 들어온 세션 ID를 가지고 로그인 여부를 검사한다.
- * */
+/* 로그인 여부를 검사하는 필터 */
 
 package bitcamp.java93.filter;
 
@@ -17,34 +16,33 @@ import javax.servlet.http.HttpServletResponse;
 
 import bitcamp.java93.domain.Member;
 
-@WebFilter({"/member/*", "/classroom/*", "/lect/*"}) //무엇을 실행해도 이 필터를 씌어라.
+@WebFilter({"/member/*", "/croom/*", "/lect/* , /teacher/*"})
 public class AuthCheckFilter implements Filter{
 
   @Override
-  public void init(FilterConfig filterConfig) throws ServletException {}
+  public void init(FilterConfig filterConfig) throws ServletException {
+    
+  }
 
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
-    
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     HttpServletResponse httpResponse = (HttpServletResponse) response;
     
-    Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
+    Member loginMember = (Member) httpRequest.getSession().getAttribute("loginMember");
     
-    //로그인 멤버가 null이라면
-    if (loginMember == null) { //쿠키에 세션ID가 없다면 
+    if (loginMember == null) {
       httpResponse.sendRedirect("../auth/login.do");
       return;
-   }
-  
-    chain.doFilter(request, response);
- }
+    }
     
-
-  
+    chain.doFilter(request, response);
+  }
 
   @Override
-  public void destroy() {}
+  public void destroy() {
+    
+  }
 
 }

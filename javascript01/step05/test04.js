@@ -1,6 +1,7 @@
-/* 주게 객체 - 저장할 수 있는 값
+/* 주제: 객체 - 변수에 저장하는 것은 객체의 주소이다.
 
 */
+
 "use strict"
 
 var values = [
@@ -8,32 +9,32 @@ var values = [
   100,
   3.14,
   true,
-  [100, 200 ,300],
+  [100, 90, 80],
   {"email": "test@test.com", "tel": "111-1111", "age": 20},
-  function(a, b) {return a + b},
+  function (a,b) {return a + b},
   null,
   undefined,
   NaN,
   Infinity,
   -Infinity
 ]
+
 console.log(values)
-console.log("--------------------------")
+console.log("--------------------------------------------------------------")
 
-
-
-var obj1 ={
+var obj1 = {
   "v1": "홍길동",
-  "v2":100,
-  "v3":3.14,
-  "v4":true,
-  "v5":[100, 200 ,300],
-  "v6":{"email": "test@test.com", "tel": "111-1111", "age": 20},
-  "v7":function(a, b) {return a + b},
-  "v8":null,
-  "v9":undefined,
-  "v10":NaN,
-  "v11":Infinity,
-  "v12":-Infinity
+  "v2": 100,
+  "v3": 3.14,
+  "v4": true,
+  "v5": [100, 90, 80],
+  "v6": {"email": "test@test.com", "tel": "111-1111", "age": 20},
+  "v7": function (a,b) {return a + b},
+  "v8": null,
+  "v9": undefined,
+  "v10": NaN,
+  "v11": Infinity,
+  "v12": -Infinity
 }
+
 console.log(obj1)

@@ -1,0 +1,37 @@
+/* Spring WebMVC: 클라이언트로 부터 JSP를 감추기 (WEB-INF 의 숨긴다)
+ */
+package control;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/control/controller19/") 
+public class Controller19 {
+
+  @RequestMapping ("ok1")
+    public String ok1(Model model) throws Exception {
+      
+      return "controller19_ok1";
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

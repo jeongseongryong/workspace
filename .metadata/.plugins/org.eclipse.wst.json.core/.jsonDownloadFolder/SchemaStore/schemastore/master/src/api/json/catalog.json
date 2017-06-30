@@ -1,20 +1,14 @@
-{
+﻿{
   "$schema": "http://json.schemastore.org/schema-catalog",
 
   "version": 1.0,
   "schemas": [
     {
-      "name": ".angular-cli.json",
-      "description": "Angular CLI configuration file",
+      "name": "Angular Cli Configuration",
+      "description": "Configuration file for Angular Cli",
       "fileMatch": [ ".angular-cli.json", "angular-cli.json" ],
       "url": "https://raw.githubusercontent.com/angular/angular-cli/master/packages/@angular/cli/lib/config/schema.json"
-    },
-    {
-      "name": "apple-app-site-association",
-      "description": "Apple Universal Link, App Site Association",
-      "fileMatch": [ "apple-app-site-association" ],
-      "url": "http://json.schemastore.org/apple-app-site-association"
-    },
+    },    
     {
       "name": "babelrc.json",
       "description": "Babel configuration file",
@@ -124,12 +118,6 @@
       "versions": {
         "2.8.0": "http://json.schemastore.org/docfx-2.8.0"
       }
-    },
-    {
-      "name": "dotnetcli.host.json",
-      "description": "JSON schema for .NET CLI template host files",
-      "fileMatch": [ "dotnetcli.host.json" ],
-      "url": "http://json.schemastore.org/dotnetcli.host"
     },
     {
       "name": "epr-manifest.json",
@@ -257,17 +245,6 @@
       "url": "http://jsonapi.org/schema"
     },
     {
-      "name": "JSON Document Transform",
-      "description": "JSON Document Transofrm",
-      "url": "http://json.schemastore.org/jdt"
-    },
-    {
-      "name": "JSON Feed",
-      "description": "JSON schema for the JSON Feed format",
-      "fileMatch": [ "feed.json" ],
-      "url": "http://json.schemastore.org/feed"
-    },
-    {
       "name": "*.jsonld",
       "description": "JSON Linked Data files",
       "fileMatch": [ "*.jsonld" ],
@@ -301,12 +278,6 @@
       "name": "Microsoft Band Web Tile",
       "description": "Microsoft Band Web Tile manifest file",
       "url": "http://json.schemastore.org/band-manifest"
-    },
-    {
-      "name": "mimetypes.json",
-      "description": "JSON Schema for mime type collections",
-      "fileMatch": [ "mimetypes.json" ],
-      "url": "http://json.schemastore.org/mimetypes"
     },
     {
       "name": ".modernizrrc",
@@ -409,12 +380,6 @@
       "url": "http://json.schemastore.org/project-1.0.0-rc2"
     },
     {
-      "name": "proxies.json",
-      "description": "JSON schema for Azure Function Proxies proxies.json files",
-      "fileMatch": [ "proxies.json" ],
-      "url": "http://json.schemastore.org/proxies"
-    },
-    {
       "name": "*.resjson",
       "description": "Windows App localization file",
       "fileMatch": [ "*.resjson" ],
@@ -513,12 +478,7 @@
       "fileMatch": [ "swagger.json" ],
       "url": "http://json.schemastore.org/swagger-2.0"
     },
-    {
-      "name": "template.json",
-      "description": "JSON schema .NET template files",
-      "fileMatch": [ ".template.config/template.json" ],
-      "url": "http://json.schemastore.org/template"
-    },
+
     {
       "name": "templatsources.json",
       "description": "SideWaffle template source schema",
@@ -612,12 +572,6 @@
       "name": "JSON Schema Draft 4",
       "description": "Meta-validation schema for JSON Schema Draft 4",
       "url": "http://json-schema.org/draft-04/schema"
-    },
-    {
-      "name": "vs-2017.3.host.json",
-      "description": "JSON schema for Visual Studio template host file",
-      "fileMatch": [ "vs-2017.3.host.json" ],
-      "url": "http://json.schemastore.org/vs-2017.3.host"
     },
     {
       "name": "xunit.runner.json",

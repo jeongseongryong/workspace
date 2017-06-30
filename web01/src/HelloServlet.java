@@ -7,39 +7,34 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 public class HelloServlet implements Servlet{
-	
-	public HelloServlet() { 
-		System.out.println("HelloServlet()");
-	}
+  
+  public HelloServlet() {
+    System.out.println("HelloServlet()");
+  }
 
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		System.out.println("init()");
-		
-	}
+  @Override
+  public void init(ServletConfig config) throws ServletException {
+    System.out.println("init()");
+  } // init()
 
-	@Override
-	public ServletConfig getServletConfig() {
-		System.out.println("getServletConfig()");
-		return null;
-	}
+  @Override
+  public ServletConfig getServletConfig() {
+    System.out.println("getServletConfig()");    return null;
+  } // getServletConfig
 
-	@Override
-	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		System.out.println("service()");
-		
-	}
+  @Override
+  public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+    System.out.println("service()");    
+  } // service()
 
-	@Override
-	public String getServletInfo() {
-		System.out.println("getServletInfo()");
-		return null;
-	}
+  @Override
+  public String getServletInfo() {
+    System.out.println("getServletInfo()");    return null;
+  } // getServletInfo()
 
-	@Override
-	public void destroy() {
-		System.out.println("destroy()");
-		
-	}
-	
+  @Override
+  public void destroy() {
+    System.out.println("destroy()");    
+  } // destroy()
+  
 }

@@ -8,3 +8,4 @@
 
 // 한 줄 주석: 줄 끝까지 주석으로 취급한다.
 console.log("Hello, world!");
+

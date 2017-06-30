@@ -1,23 +1,23 @@
-/* HTTP 서버 만들기 - single 스레드 방식
-=>  한번 에 한 클라이언트 요청만 처리.
-  즉한 클라이언트의 요청 처리가 끝낭만 다음클라이언트 요청을 처리한다.
-=> 수 많은 사용자의 동시 요청을 처리하는 용도가 아님
-    특정 한개의 서비스를 순차적으로 빠르게 처리할 필요가 있을떄 사용 
+/* HTTP 서버 만들기 - Single 스레드 방식
 */
 
+"use strict"
+
+// 1) 모듈 로딩
 const http = require('http')
 
-
+// 2) HttpServer 객체 생성
 const server = http.createServer(function(request, response) {
   console.log('클라이언트 요청이 들어왔네!')
-setTimeout(function() {
 
-  response.end();
-},5000)
-
+  // 요청이 들어오면 5초후에 응답을 완료한다.
+  setTimeout(function() {
+    response.end();
+  },5000)
 
 })
 
+// 3) 서버 실행
 server.listen(8888)
 
-console.log("서버 실행 중...")
+console.log('서버 실행중...')

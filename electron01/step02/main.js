@@ -1,16 +1,14 @@
-/* Electron 모듈 사용하기
+/* 주제: 윈도우 생성하기
 
-*/
+ */
+
 const {app, BrowserWindow} = require('electron')
-
-
 
 let win
 
 app.on('ready', createWindow)
 
-
 function createWindow() {
-
-win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 500, height: 400})
+  
 }

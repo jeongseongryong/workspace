@@ -5,7 +5,7 @@ module.exports = {
     this.connection = con
   },
 
-  selectList(pageNo,pageSize, successFn, errorFn) {
+  selectList(pageNo, pageSize, successFn, errorFn) {
     this.connection.query(
       'select m.mno, m.name, m.tel, m.email, s.work \
       from stud s inner join memb m on s.sno=m.mno  \

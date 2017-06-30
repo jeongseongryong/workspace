@@ -1,26 +1,33 @@
-/* JDBC 프로그래밍: DriverManager 클래스
- * =>MySQL JDBC 드라이버를 드라이버 관리하는 객체
- */
+/* JDBC 프로그래밍 : DriverManager 클래스 */
+
 package step20;
 
 import java.sql.DriverManager;
 
 public class Test01_2 {
 
-	public static void main(String[] args) throws Exception {
-		
-		com.mysql.jdbc.Driver mysqldriver = new com.mysql.jdbc.Driver();
-		
-		DriverManager.registerDriver(mysqldriver); //  java.sql.Driver 규칙에 따라만든 클래스
-		
-		java.sql.Connection con = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/webappdb", 
-				"webapp",
-				"1111");
-		
-		System.out.println("DBMS와 연결 되었음!");
-		
-		con.close();
-	}
+  public static void main(String[] args) throws Exception {
+    
+    // 1) MySQL JDBC 드라이버 관리 객체 생성
+    
+    com.mysql.jdbc.Driver mysqlDriver = new com.mysql.jdbc.Driver();
+    
+    // 2) MySQL JDBC 드라이버를 "드라이버 관리자"에 등록한다.
+    
+    DriverManager.registerDriver(mysqlDriver);
+    
+    // 3) 드라이버 관리자를 통해 DBMS와 연결한다.
+    
+    java.sql.Connection con = DriverManager.getConnection(
+        "jdbc:mysql://localhost:3306/webappdb", 
+        "webapp",
+        "1111");
+    
+    // 4) 연결이 되었으면, 간단한 말을 출력하자!
+    System.out.println("DBMS와 연결되었음!");
+    
+    // 5) DBMS와 연결을 끊고 싶다면 Connection의 close()를 호출하라!
+    con.close();
+  }
 
 }

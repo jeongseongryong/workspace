@@ -1,103 +1,79 @@
-/*
-
-*/
 "use strict"
+var prompt = require('prompt');
 
-var prompt = require('prompt')
 
-var studentList = [
-  ['홍길동1', 100, 100, 100, 300, 100],
-  ['홍길동2', 90, 90, 90, 270, 90],
-  ['홍길동3', 80, 80, 80, 240, 80],
-  ['홍길동4', 70, 70, 70, 210, 70],
-  ['홍길동5', 60, 60, 60, 180, 60]
-];
+var student = [["홍길동1",100,90,80,270,90],["홍길동2",100,90,80,270,90],
+              ["홍길동3",100,90,80,270,90],["홍길동4",100,90,80,270,90],
+              []];
 
-prompt.start()
 
-inputCommand()
 
-function inputCommand() {
-  prompt.get(['command'], function(err, result) {
-    switch (result.command) {
-    case 'quit':
-      doQuit()
-      return; // 함수 실행을 끝낸다.
-    case 'list':
-      doList()
-      return;
-    case 'add':
-      doAdd()
-      return;
-    case 'delete':
-      doDelete()
-      return;
-    default:
-      doDefault()
-    }
-  })
+function add() {
+  prompt.start();
+  prompt.get(['name','kor','eng','math'], function (err, result) {
+    var name = String(result.name);
+    var kor = parseInt(result.kor);
+    var eng = parseInt(result.eng);
+    var math = parseInt(result.math);
+    student[4][0] = name;
+    student[4][1] = kor;
+    student[4][2] = eng;
+    student[4][3] = math;
+    student[4][4] = kor + eng + math;
+    student[4][5] = ((kor + eng + math)/3);
+  return start();
 }
+)};
+  function splice(){
+      prompt.start();
+    prompt.get(['Number'], function (err, result) {
+      var Number = parseInt(result.Number);
+      student.spilce([no])
+      return start();
 
-function doQuit() {
-  console.log('안녕히 가세요!')
 }
+)};
 
-function doList() {
-  console.log('[학생 목록]')
-  var count = 0;
-  for (var student of studentList) {
-    console.log(count++ + ":" + student[0] + "," +
-      student[1] + "," +
-      student[2] + "," +
-      student[3] + "," +
-      student[4] + "," +
-      student[5]);
+function start() {
+
+prompt.start();
+
+prompt.get(['command'], function (err, result) {
+  var command = String(result.command);
+  switch (command) {
+  case "list":
+  console.log("[학생 성적 목록]");
+  console.log(student)
+
+  return start();
+  break;
+
+  case "add":
+    console.log("[학생 성적 입력]");
+    add();
+    break;
+
+
+  case "delete":
+    splice();
+
+  console.log(no + "의 정보가 삭제되었습니다.");
+  return start();
+  break;
+
+  case "quit":
+
+  end();
+  break;
+
   }
-  inputCommand()
+
+
+});
 }
 
-function doAdd() {
-  console.log('[학생 입력]')
-  prompt.get(['name', 'kor', 'eng', 'math'], function(err, result) {
-    var student = [result.name,
-      parseInt(result.kor),
-      parseInt(result.eng),
-      parseInt(result.math)]
-    student[4] = student[1] + student[2] + student[3]
-    student[5] = student[4] / 3
-
-    studentList[studentList.length] = student
-    console.log('입력 되었습니다.')
-    console.log()
-
-    inputCommand();
-  })
+function end() {
+  console.log("안녕히 가세요!");
 }
 
-function doDelete() {
-  console.log('[학생 삭제]')
-  prompt.get(['no'], function(err, result) {
-    var no = parseInt(result.no)
-    if (studentList.length == 0) {
-      console.log('삭제할 항목이 없습니다.')
-      inputCommand()
-      return
-    }
-
-    if (no < 0 || no >= studentList.length) {
-      console.log('학생 번호가 옳지 않습니다.')
-      inputCommand()
-      return
-    }
-
-    studentList.splice(no, 1)
-    console.log('삭제했습니다.')
-    console.log()
-    inputCommand()
-  })
-}
-
-function doDefault() {
-  console.log('해당 명령은 지원하지 않습니다.')
-  inputCommand()
-}
+start();

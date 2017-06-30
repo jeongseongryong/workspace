@@ -1,0 +1,52 @@
+/* Spring WebMVC: Request Handler(요청을 처리하는 메서드)의 파라미터들 I
+ */
+package control;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/control/controller11/") 
+public class Controller11 {
+
+  @RequestMapping(path="ok1") 
+  public void ok1(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    response.setContentType("text/plain;charset=UTF-8");
+    
+    PrintWriter out = response.getWriter();
+    
+    out.println("text/plain 데이터를 받아서 처리했음!");
+  }
+  
+  @RequestMapping (path="ok", consumes="application/json")
+  public void post(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    response.setContentType("text/plain;charset=UTF-8");
+    
+    PrintWriter out = response.getWriter();
+    
+    out.println("application/json 데이터를 받아서 처리했음!");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

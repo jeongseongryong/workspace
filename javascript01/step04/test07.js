@@ -1,18 +1,19 @@
-/* 주제: 함수 - arrow function
-- 함수 정의를 축약한 문법
+/*주제: Arrow function
 
 */
+
 "use strict"
 
-var f1 = function() {
+var f1 = function (){
   console.log("익명함수....");
 }
 
-var f2 = () => {
-  console.log("Arrow 함수");
-}
 
-var f3 = () => console.log("Arrow 함수2");
+
+//arrow 함수
+
+var f2 = () => {console.log("Arrow 함수")}
+var f3 = () => console.log("Arrow 함수2")
 
 
 f1();

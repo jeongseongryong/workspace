@@ -1,4 +1,3 @@
-activeuserprofiles=Bitcamp-PC;Team
+activeuserprofiles=Bitcamp-PC;DESKTOP-E93ETFO;Team
 eclipse.preferences.version=1
-org.eclipse.rse.systemtype.local.systemType.defaultUserId=Bitcamp
-useridperkey=Bitcamp-PC.Local\=Bitcamp;
+useridperkey=Bitcamp-PC.Local\=bitcamp;

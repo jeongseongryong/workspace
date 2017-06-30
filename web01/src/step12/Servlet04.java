@@ -13,19 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/step12/Servlet04")
 public class Servlet04 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		//Cookie cookie = new Cookie("c4", "ABC가각간");
-		
-		Cookie cookie = new Cookie("c4",URLEncoder.encode("ABC가각간", "UTF-8"));
-		
-		resp.addCookie(cookie);
-		
-		resp.setContentType("text/plain;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println("Servlet04:쿠기 보냄");
-	}
+  private static final long serialVersionUID = 1L;
+  
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    
+//    Cookie cookie = new Cookie("c4", "ABC가각간");
+    
+    Cookie cookie = new Cookie("c4", URLEncoder.encode("ABC가각간", "UTF-8"));
+    
+    res.addCookie(cookie);
+    
+    res.setContentType("text/plain;charset=UTF-8");
+    PrintWriter out = res.getWriter();
+    
+    out.println("Servelt04: 쿠키 보냈음");
+  }
+
 }

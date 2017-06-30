@@ -1,6 +1,7 @@
 "use strict"
 
 module.exports = {
+
   setManagerDao(dao) {
     this.managerDao = dao
   },
@@ -12,6 +13,7 @@ module.exports = {
   listName(success, error) {
     this.managerDao.selectNameList(success, error)
   },//listName()
+
 
   list(pageNo, success, error) {
     var obj = this

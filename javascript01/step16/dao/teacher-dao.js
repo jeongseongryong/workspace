@@ -1,15 +1,20 @@
-"use strict"
+  "use strict"
 
 module.exports = {
   setConnection(con) {
     this.connection = con
   },
 
-  selectList(pageNo,pageSize, successFn, errorFn) {
+/*
+select m.mno, m.name,t.hmpg, t.fcbk, t.twit
+from tcher t left outer join memb m on t.tno = m.mno
+*/
+
+  selectList(pageNo, pageSize, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit \
-      from tcher t inner join memb m on t.tno=m.mno \
-      order by m.name asc \
+      'select m.mno, m.name,t.hmpg, t.fcbk, t.twit \
+      from tcher t left outer join memb m on t.tno = m.mno \
+      order by m.mno asc \
       limit ?, ?',
       [(pageNo - 1) * pageSize, pageSize],
       function(error, results) {
@@ -32,10 +37,7 @@ module.exports = {
         }
       }) //connection.query()
   },//countAll()
-/*select m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit
-from tcher t inner join memb m on t.tno=m.mno
-where t.tno=?
-*/
+
   selectOne(no, successFn, errorFn) {
     this.connection.query(
       'select m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit \
@@ -53,8 +55,8 @@ where t.tno=?
 
   insert(teacher, successFn, errorFn) {
     this.connection.query(
-      'insert into tcher(tno,hmpg,fcbk,twit) values(?,?,?,?)',
-      [ teacher.no, teacher.homepage, teacher.facebook, teacher.twitter],
+      'insert into tcher(tno, hmpg, fcbk, twit) values(?, ?, ?, ?)',
+      [teacher.no, teacher.hmpg, teacher.fcbk, teacher.twit],
       function(error, result) {
         if (error) {
           errorFn(error)
@@ -67,7 +69,7 @@ where t.tno=?
   update(teacher, successFn, errorFn) {
     this.connection.query(
       'update tcher set hmpg=?, fcbk=?, twit=? where tno=?',
-      [teacher.homepage, teacher.facebook, teacher.twitter, teacher.no],
+      [teacher.hmpg, teacher.fcbk, teacher.twit, teacher.no],
       function(error, result) {
         if (error) {
           errorFn(error)

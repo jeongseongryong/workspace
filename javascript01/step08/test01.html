@@ -4,43 +4,31 @@
   <meta charset="UTF-8">
   <title>HTML</title>
   <style>
-  body {
-    background-color: gray;
-  }
-  body > div {
-    border: 1px solid red;
-    min-height: 300px;
-  }
   </style>
 </head>
 <body>
-  <button id="btn1" type="button">버튼1</button><br>
-  <textarea id="ta" rows="20" cols="80"></textarea>
-
 <script>
-
-  var btn1 = document.querySelector('#btn1')
-  var ta = document.querySelector('#ta')
-
-
-  btn1.addEventListener('click', function(event) {
-
-    var xhr = new XMLHttpRequest()
-
-    xhr.open('get', 'http://localhost:8080/webapp/student/list.json', false)
-
-    xhr.send()
-/*
-    console.log(xhr.responseText)
+/* 웹브라우저 내장객체(built-in object)
 */
-    ta.value = xhr.responseText
-})
 
 
+/*1) window 객체
 
+*/
+
+// 글로벌 프로퍼티
+var v1 = 100;  // => window.v1 = 100
+window.v2 = 200;
+
+console.log(window.v1, window.v2);
+console.log(v1, v2); // window를 생략할수있다.
 
 
 </script>
-
 </body>
 </html>
+
+
+
+
+<!-- -->

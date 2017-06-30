@@ -1,6 +1,7 @@
 "use strict"
 
 module.exports = {
+
   setTeacherDao(dao) {
     this.teacherDao = dao
   },
@@ -9,9 +10,9 @@ module.exports = {
     this.memberDao = dao
   },
 
-  list(pageNo,pageSize, success, error) {
+  list(pageNo, pageSize, success, error) {
     var obj = this
-    this.teacherDao.selectList(pageNo,pageSize, function(teachers) {
+    this.teacherDao.selectList(pageNo, pageSize, function(teachers) {
       obj.teacherDao.countAll(function(result) {
         success(teachers, result[0].cnt)
       }, error)

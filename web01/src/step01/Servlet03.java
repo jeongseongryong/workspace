@@ -1,36 +1,39 @@
-/* 웹 애플리케이션 컴포넌트 : 서블릿 만들기 III -HttpServlet 추상 클래스 상속 받기
- * => HttpServlet?
- * 	-GenericServlet 클래스는 GET,POST,HEAD,PUT,DELETE 등의 요청을 구분하지 않고
- * 	무조건 service()
- */
+/* 웹 애플리케이션 컴포넌트  - 서블릿 만들기 III - HttpServlet 추상 클래스 상속 받기 
+ * 
+ * 오리지날 service를 오버라이딩 하지 않는다
+ * httpservlet과 genericservlet을 구분해서 사용해라
+ * 
+ * http 프로토콜을 구분해서 사용할수있는 메서드가 들어있다.
+ * 
+ * */
+
 package step01;
 
 import java.io.IOException;
 
-import javax.servlet.GenericServlet;
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns="/step01/Servlet03") //
+@WebServlet(urlPatterns="/step01/Servlet03")
 public class Servlet03 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Servlet03.doGet()");
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Servlet03.doPost()");
-	}
 
-	
+  private static final long serialVersionUID = 1L;
+  
+  // Httpservletrequest는 servletrequest의 서브 인터페이스이다.
+  
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    super.doGet(req, resp);
+    System.out.println("/step01/doGet03()");
+  }
+  
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    super.doPost(req, resp);
+    System.out.println("/step01/doPost03()");
+  }
+  
 }

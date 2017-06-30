@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>콘텐츠 요청</title>
+</head>
+<body>
+
+<button id="btn1">"text/plain" 콘텐츠 보냄</button>
+<button id="btn2">"application/json" 콘테츠 보냄</button>
+<div>
+<textarea id="ta" cols="80" rows="8"></textarea>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$("#btn1").click(function() { 
+  $.ajax("control/controller10/ok.do", {
+	method: "post",
+	data:"hello!!",
+	headers: {"Content-Type": "text/plain"}, 
+	dataType:"text"})
+	.done(function(result) { // 성공했을때 호출될 메소드를 넣는다.
+	  $("#ta").val(result)
+	})
+	.fail(function(xhr, status, error) { // 실패했을때 호출될 메소드를 넣는다.
+	  $("#ta").val(xhr.responseText)
+	})
+})
+
+$("#btn2").click(function() { 
+  $.ajax("control/controller10/ok.do", {
+	method: "get",
+	data:'{"name":"hong",age:20, tel:"1111-1111"}',
+	headers: {"Content-Type": "application/json"}, 
+	dataType:"text"})
+	.done(function(result) {
+	  $("#ta").val(result)
+	})
+	.fail(function(xhr, status, error) { 
+	  $("#ta").val(xhr.responseText)
+	})
+})
+
+</script>
+</body>
+</html>

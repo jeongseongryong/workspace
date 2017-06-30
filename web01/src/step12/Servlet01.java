@@ -12,19 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/step12/Servlet01")
 public class Servlet01 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// => 쿠키의 이름은 'ISO-8859-1' 이어야 한다. 즉 한글인 안된다.
-		// 쿠키의 값은 문자열 이어야 한다. 숫자는 ㄴㄴ
-		// 한글을 저장하고 싶다면 URL 인코딩 하여 저장하라!
-		Cookie cookie = new Cookie("c1", "aaaaaa");
-		
-		resp.addCookie(cookie);
-		
-		resp.setContentType("text/plain;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println("Servlet01:쿠기 보냄");
-	}
+  private static final long serialVersionUID = 1L;
+  
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    
+    // 1) 쿠키 생성
+    Cookie cookie = new Cookie("c1", "aaaaaa");
+    
+    // 2) 쿠키를 응답 헤더에 포함시켜 보내기
+    res.addCookie(cookie);
+    
+    res.setContentType("text/plain;charset=UTF-8");
+    PrintWriter out = res.getWriter();
+    
+    out.println("Servelt01: 쿠키 보냈음");
+  }
+
 }

@@ -4,28 +4,14 @@ module.exports = {
   setConnection(con) {
     this.connection = con
   },
-
-  selectNameList(successFn, errorFn) {
-    this.connection.query(
-      'select mr.mrno, m.name \
-      from mgr mr inner join memb m on mr.mrno=m.mno order by m.name asc',
-      function(error, results) {
-        if (error) {
-          errorFn(error)
-        } else {
-          successFn(results)
-        }
-      }) // connection.query()
-  },//selectNameList()
-
 /*
-select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax
-from mgr mr inner join memb m on mr.mrno=m.mno
-order by m.name asc;
+select l.lno, m.name managername
+from lect l left outer join mgr mr on l.mrno = mr.mrno inner join memb m on mr.mrno = m.mno
 */
+
   selectList(pageNo, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax \
+      'select m.mno, m.name, m.tel, m.email \
       from mgr mr inner join memb m on mr.mrno=m.mno  \
       order by m.name asc \
       limit ?, ?',
@@ -39,6 +25,20 @@ order by m.name asc;
       }) // connection.query()
   },//selectList()
 
+  selectNameList(successFn, errorFn) {
+    this.connection.query(
+      'select mr.mrno, m.name \
+      from mgr mr inner join memb m on mr.mrno = m.mno \
+      order by m.name asc',
+      function(error, results) {
+        if (error) {
+          errorFn(error)
+        } else {
+          successFn(results)
+        }
+      }) // connection.query()
+  },//selectNameList()
+
   countAll(successFn, errorFn) {
     this.connection.query(
       'select count(*) cnt from mgr',
@@ -50,15 +50,16 @@ order by m.name asc;
         }
       }) //connection.query()
   },//countAll()
-/*
-select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax
-from mgr mr inner join memb m on mr.mrno=m.mno
-where mr.mrno=33
-*/
+
+  /*
+  select c.name
+  from croom c
+  */
+
   selectOne(no, successFn, errorFn) {
     this.connection.query(
-      'select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax, mr.path\
-      from mgr mr inner join memb m on mr.mrno=m.mno \
+      'select m.mno, m.name, m.tel, m.email, mr.posi, mr.fax, mr.path \
+      from mgr mr inner join memb m on mr.mrno = m.mno \
       where mr.mrno=?',
       [no],
       function(error, results) {
@@ -72,8 +73,8 @@ where mr.mrno=33
 
   insert(manager, successFn, errorFn) {
     this.connection.query(
-      'insert into mgr(mrno,posi,fax,path) values(?,?,?,?)',
-      [manager.no, manager.posi, manager.fax, manager.path],
+      'insert into mgr(mrno, posi, fax, path) values(?,?,?,?)',
+      [manager.no, manager.fax, manager.path, manager.posi],
       function(error, result) {
         if (error) {
           errorFn(error)
@@ -85,7 +86,7 @@ where mr.mrno=33
 
   update(manager, successFn, errorFn) {
     this.connection.query(
-      'update mgr set posi=?, fax=?, path=?, where mrno=?',
+      'update mgr set posi=?, fax=?,path=? where mrno=?',
       [manager.posi, manager.fax, manager.path, manager.no],
       function(error, result) {
         if (error) {

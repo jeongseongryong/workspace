@@ -5,9 +5,10 @@ module.exports = {
     this.connection = con
   },
 
+
   selectList(pageNo, successFn, errorFn) {
     this.connection.query(
-      "select lno, titl, date_format(sdt,'%Y-%m-%d') sdt2 , \
+      "select lno, titl, date_format(sdt,'%Y-%m-%d') sdt2, \
       date_format(edt,'%Y-%m-%d') edt2, thrs, pric \
       from lect \
       order by sdt desc \
@@ -34,21 +35,18 @@ module.exports = {
       }) //connection.query()
   },//countAll()
 
-/* select lno, titl, dscp,
-  date_format(sdt,'%Y-%m-%d') sdt2,
-  date_format(edt,'%Y-%m-%d') edt2,
-  qty, pric, thrs, crmno, mrno
-  from lect
-  where lno=13
+/*
+select lno, titl, dscp, sdt, edt, qty, pric, thrs, crmno, mrno
+from lect
+where lno =
 */
+
   selectOne(no, successFn, errorFn) {
     this.connection.query(
-      "select lno, titl, dscp,\
-        date_format(sdt,'%Y-%m-%d') sdt2,\
-        date_format(edt,'%Y-%m-%d') edt2,\
-        qty, pric, thrs, crmno, mrno\
-        from lect\
-        where lno=?",
+      "select lno, titl, dscp, date_format(sdt,'%Y-%m-%d') sdt2, \
+      date_format(edt,'%Y-%m-%d') edt2, qty, pric, thrs, crmno, mrno \
+      from lect \
+      where lno = ?",
       [no],
       function(error, results) {
         if (error) {
@@ -61,11 +59,8 @@ module.exports = {
 
   insert(lecture, successFn, errorFn) {
     this.connection.query(
-      'insert into lect(titl,dscp,sdt,edt,qty,pric,thrs,crmno,mrno) \
-      values(?,?,?,?,?,?,?,?,?)',
-      [lecture.title, lecture.content, lecture.startDate,
-      lecture.endDate, lecture.quantity, lecture.price,
-      lecture.hours, lecture.classroom, lecture.manager],
+      'insert into lect(crmno, mrno, titl, dscp, sdt, edt, qty, pric, thrs) values(?,?,?,?,?,?,?,?,?)',
+      [lecture.classroom, lecture.manager, lecture.titl, lecture.dscp, lecture.sdt, lecture.edt, lecture.qty, lecture.pric, lecture.thrs],
       function(error, result) {
         if (error) {
           errorFn(error)
@@ -77,11 +72,8 @@ module.exports = {
 
   update(l, successFn, errorFn) {
     this.connection.query(
-      'update lect set titl=?, dscp=?, sdt=?, edt=?, qty=?, pric=?, thrs=?, crmno=?, mrno=? \
-      where lno=?',
-      [l.title, l.content, l.startDate, l.endDate,
-        l.quantity, l.price, l.hours, l.classroom,
-        l.manager, l.no],
+      'update lect set titl=?, dscp=?, sdt=?, edt=?, qty=?, pric=?, thrs=?, crmno=?, mrno=? where lno=?',
+      [l.titl, l.dscp, l.sdt, l.edt, l.qty, l.pric, l.thrs, l.classroom, l.manager, l.no],
       function(error, result) {
         if (error) {
           errorFn(error)

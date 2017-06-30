@@ -1,8 +1,5 @@
-/* HttpServlet 추상 클래스를 상속받아 서블릿 만들기 IV
- * => POST 요청만 처리하기
- * => HttpServlet 추상 클래스에 추가한 doPost() 메서드만 오버라이딩
- * => /step11/test.html 로 테스트 하라!
- */
+/* HttpServlet 추상 클래스를 상속받아 서블릿 만들기 III */
+
 package step11;
 
 import java.io.IOException;
@@ -17,19 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/step11/Servlet04")
 public class Servlet04 extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   @Override
-  public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     res.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = res.getWriter();
-    out.println("POST 요청입니다.");
-  }
+    out.println("Post 요청입니다.");
+  } // doPost()
+  
+  
 }
-
-
-
-
-
-
-
-

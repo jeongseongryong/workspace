@@ -1,5 +1,4 @@
-/* 작업을 나눠서 처리하기: 포워딩
- */
+/* 작업을 처리하기 : 포워딩 */
 package step05;
 
 import java.io.IOException;
@@ -12,45 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns="/step05/Servlet01/multiple")
-//http://localhost:8080/web01/step05/Servlet01/multiple?a=10&b=20&op=*
-public class Servlet01_multiple  extends HttpServlet {
+public class Servlet01_multiple extends HttpServlet {
+
   private static final long serialVersionUID = 1L;
 
   @Override
   public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
- 
-    
     res.setContentType("text/html;charset=UTF-8");
     PrintWriter out = res.getWriter();
 
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-    out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>리프래시</title>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>리프레시</title>");
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>곱하기 결과</h1>");
     
-    int a =Integer.parseInt(req.getParameter("a"));
-    int b =Integer.parseInt(req.getParameter("b"));
+    int a = Integer.parseInt(req.getParameter("a"));
+    int b = Integer.parseInt(req.getParameter("b"));
     String op = req.getParameter("op");
     
-    if (op.equals("*")) {
-    	out.printf("%d * %d = %d\n", a, b, (a*b));
+    if(op.equals("*")) {
+      out.printf("%d * %d = %d\n", a, b, (a * b));
     } else {
-    	out.printf("%s 연산을 지원하지 않습니다.\n", op );
+      out.printf("%s 연산을 지원하지 않습니다.\n", op);
     }
+    
     out.println("</body>");
     out.println("</html>");
-  }
+  } // service()
+
 }
-
-
-
-
-
-
-
-
-

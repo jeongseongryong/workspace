@@ -16,14 +16,16 @@ var name2 = "임꺽정",
     math2 = 90;
 console.log(name2, tel2, kor2, eng2, math2);
 
+//문자열 여러줄 입력
+//방법1) '+' 연산자를 사용하여 문자열을 연결한다.
+var str = '안녕하세요. ' +
+          '홍길동' +
+          '입니다.'
+console.log(str)
 
-var str = "안녕하세요." + "홍길동" + "입니다."
-console.log(str);
-
-
+//방법2)
+//공백자체도 문자열로 취급하기떄문에 줄맞춤을 하면 안된다.
 var str2 = "안녕하세요. \
 홍길동\
 입니다."
 console.log(str2)
-
-//

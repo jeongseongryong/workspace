@@ -1,5 +1,5 @@
-/* 애노테이션: 애노테이션에 배열 속성 추가하기
- */
+/* 애노테이션: 애노테이션에 배열 속성 추가하기 */
+
 package step25;
 
 import java.lang.annotation.Retention;
@@ -13,12 +13,6 @@ public @interface Annotation05 {
   int[] v4();
   int[] v5();
   int[] v6();
+
+  
 }
-
-
-
-
-
-
-
-

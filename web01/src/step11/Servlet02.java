@@ -1,10 +1,5 @@
-/* HttpServlet 추상 클래스를 상속받아 서블릿 만들기 II
- * => HttpServlet 추상 클래스에 추가한 service() 메서드 오버라이딩 
- *    요청
- *      --> Servlet.service(ServletRequest,ServletResponse)
- *          --> Servlet.service(HttpServletRequest,HttpServletResponse)
- * => /step11/test.html 로 테스트 하라!
- */
+/* HttpServlet 추상 클래스를 상속받아 서블릿 만들기 II */
+
 package step11;
 
 import java.io.IOException;
@@ -21,18 +16,12 @@ public class Servlet02 extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
     res.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = res.getWriter();
+
     out.println("안녕하세요!");
     out.println(req.getMethod());
+
   }
 }
-
-
-
-
-
-
-
-

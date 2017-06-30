@@ -22,3 +22,12 @@ prompt.get(['name', 'tel'], function(err, result) {
   console.log('이름=', result.name);
   console.log('전화=', result.tel);
 });
+
+
+
+
+
+
+
+
+//

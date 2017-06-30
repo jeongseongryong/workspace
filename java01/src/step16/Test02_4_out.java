@@ -1,15 +1,16 @@
-/* File I/O : 바이트 스트림 클래스 - FileOutputStream IV
- * => 다양한 타입의 값을 출력하기
- */
+/* File I/O - 바이트 스트림 클래스 - FileOutputStream IV */
 package step16;
 
 import java.io.FileOutputStream;
 
-public class Test02_4_out {
+public class Test02_4_Out {
 
   public static void main(String[] args) throws Exception {
+    System.out.println("step16 Test02_4_Out 실행");
+    System.out.println();
+    
     FileOutputStream out = new FileOutputStream("test02_4.data");
-
+    
     byte b = 0x11;
     out.write(b);
     
@@ -25,28 +26,23 @@ public class Test02_4_out {
     
     String str = "ABC가각간";
     byte[] bytes = str.getBytes("UTF-8");
-    
-    // 문자열의 바이트를 출력하기 전에 그 바이트의 크기 값을 먼저 출력한다. 
     int len = bytes.length;
+    
     out.write(len >> 24);
     out.write(len >> 16);
     out.write(len >> 8);
     out.write(len);
     
-    // 문자열의 바이트를 출력한다.
     out.write(bytes);
     
     out.close();
-    System.out.println("파일 출력 완료!");
+    
+    System.out.println("파일 출력 완료");
+  }
+
+  private static void getBytes() {
+    // TODO Auto-generated method stub
+    
   }
 
 }
-
-
-
-
-
-
-
-
-

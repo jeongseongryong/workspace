@@ -1,9 +1,10 @@
-/* 주제: Mysql DBMS에 직접접속
+/* 주제: My SQL DBMS에 직접 접속하기
+
  */
+
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-// URL 경로를 보다 쉽게 다루기 위한 모듈이다.
 const url = require('url')
 
 let win
@@ -11,15 +12,18 @@ let win
 app.on('ready', createWindow)
 
 function createWindow() {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 900, height: 800})
+
+  //win.loadURL('file:///C:/workspace/electron01/step03/index.html') v1
+  //win.loadURL('file://' + __dirname + '/index.html')
+  //win.loadURL(path.join('file://', __dirname, '/index.html'))
+  //함수로 넘길때는 (값,값,값 ) 이렇게 넘겼지만
+  // urlObject 객체로 넘겨라
+
   win.loadURL(url.format({
-    protocol: 'file:',
+    protocol: 'file',
     pathname: path.join(__dirname, 'index.html'),
     slashes: true
   }))
-  // win.webContents.openDevTools() //웹 브라우저 개발창 도구를 띄움
+ win.webContents.openDevTools()  // 웹브라우저의 개발도구 창을 뛰운다.
 }
-
-
-
-//

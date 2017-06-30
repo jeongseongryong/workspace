@@ -1,4 +1,4 @@
-/* 주제: 네트워킹 프로그래밍 소개 - 미니 웹브라우저 만들기
+/* 자바로 웹브라우저 만들기
  */
 
 import java.io.InputStream;
@@ -12,6 +12,7 @@ public class MiniWebBrowser {
     // Data Sink Stream 객체 준비 => 랜카드를 통해 데이터를 입출력
     // 1) 랜카드 접속 객체 준비
     Socket socket = new Socket("www.etnews.com", 80);
+    /*80번 포트에 연결하겠다.*/
 
     // 2) 입출력 객체 준비
     InputStream in = socket.getInputStream();
@@ -26,9 +27,15 @@ public class MiniWebBrowser {
     // 요청방식 요청할자원의주소 프로토콜/버전 CRLF
     // Host: 요청을 받을 서버 이름 CRLF
     // 빈 줄
+
     out2.println("GET / HTTP/1.1");
     out2.println("Host: www.etnews.com");
     out2.println();
+    
+    /*첫번째 라인은 리퀘스트 라인  원하는 자원의 URL   HTTP프로토콜 버전
+    두번째 라인은 헤더정보 최소 헤더정보는 보내야한다. 호스트는 www.daum.net에 기본문서를 보내달라 요청하는것.
+    세번쨰 라인은 빈줄
+    */
 
     // 5) 서버에서 응답한 내용을 읽기
     String line = null;

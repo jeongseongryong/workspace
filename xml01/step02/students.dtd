@@ -2,7 +2,7 @@
 
 <!ENTITY % coreattr
 "id ID #REQUIRED
- name CDATA #REQUIRED">
+name CDATA #REQUIRED">
 
 <!ELEMENT students (class+,student+,loc+)>
 

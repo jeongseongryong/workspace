@@ -7,18 +7,16 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class Test03 {
-
-	public static void main(String[] args) throws Exception {
-		InputStream inputStream = Resources.getResourceAsStream("step28/ex2/mybatis-config.xml");
-		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		
-		MemberDaoImpl memberDao = new MemberDaoImpl();
-		memberDao.setSqlSessionFactory(sqlSessionFactory);
-		
-		Member m = memberDao.selectOneByEmailPassword("aaa1@test.com","1111");
-		System.out.println(m);
-		
-
-	}
-
+  public static void main(String[] args) throws Exception {
+    InputStream inputStream = Resources.getResourceAsStream("step28/ex2/mybatis-config.xml");
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    
+    MemberDaoImpl memberDao = new MemberDaoImpl();
+    memberDao.setSqlSessionFactory(sqlSessionFactory);
+    
+    Member m = memberDao.selectOneByEmailPassword("abc", "123");
+    
+    System.out.println(m);
+    
+  }
 }

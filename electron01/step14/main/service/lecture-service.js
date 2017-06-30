@@ -1,9 +1,23 @@
 "use strict"
 
 module.exports = {
+
   setLectureDao(dao) {
     this.lectureDao = dao
   },
+
+  setclassroomDao(dao) {
+    this.classroomDao = dao
+  },
+
+  setManagerDao(dao) {
+    this.managerDao = dao
+  },
+
+  setMemberDao(dao) {
+    this.memberDao = dao
+  },
+
 
   list(pageNo, success, error) {
     var obj = this
@@ -18,15 +32,19 @@ module.exports = {
     this.lectureDao.selectOne(no, success, error)
   },//detail()
 
+
   insert(lecture, success, error) {
     this.lectureDao.insert(lecture, success, error)
   },//insert()
 
+
   update(lecture, success, error) {
     this.lectureDao.update(lecture, success, error)
-  }, // update()
+  },//update()
 
   delete(no, success, error) {
     this.lectureDao.delete(no, success, error)
-  } // delete()
+  },//delete()
+
+
 } // exports

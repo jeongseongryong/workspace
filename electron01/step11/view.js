@@ -1,9 +1,10 @@
+
 "use strict"
 
 window.$ = window.jQuery = require('jquery')
+
 var studentDao = createStudentDao(connection)
 var memberDao = createMemberDao(connection)
-
 
 var fiNo = $('#fi-no'),
     fiEmail = $('#fi-email'),
@@ -12,42 +13,45 @@ var fiNo = $('#fi-no'),
     fiSchoolName = $('#fi-school-name'),
     fiWorking = $('#fi-working');
 
-if (location.search == "") {
-  $('.bit-view').css('display', 'none')
+if (location.search == ""){
+  $('.bit-view').css('display','none')
+
   $('.bit-new').css('display', '')
 
-  $('#add-btn').click(function() {
-    memberDao.insert(
-      {
-        name: fiName.val(),
-        tel: fiTel.val(),
-        email: fiEmail.val(),
-        password: '1111'
-      },
-      function(result) {
-        studentDao.insert(
-          {
-            no: result.insertId,
-            working: (fiWorking.prop('checked') ? 'Y' : 'N'),
-            schoolName: fiSchoolName.val()
-          },
-          function(result) {
-            location.href = 'index.html'
-          },
-          function(error) {
-            alert('학생 데이터 등록 중 오류 발생!')
-            throw error;
-        })
-      },
-      function(error) {
-        alert('회원 기본 데이터 등록 중 오류 발생!')
-        throw error;
-    }) //insertMember()
-  }) // click()
+ $('#add-btn').click(function(){  //add버튼에 대해서 클릭 이벤트 리스너를 등록하라
+   memberDao.insert(
+   {
+    name : fiName.val(),
+    tel : fiTel.val(),
+    email: fiEmail.val(),
+    password : '1111'
+   },
+   function(result) {
+     studentDao.insert(
+       {
+         no : result.insertId,
+         working : (fiWorking.prop('checked') ? 'Y' : 'N'),
+         schoolName : fiSchoolName.val()
+       },
+       function(result) {
+         location.href = 'index.html'
+       },
+       function(error) {
+           alert('학생 데이터 등록 중 오류 발생!')
+           throw error;
+       }) //insertStudent
+   },
+   function(error) {
+     alert('회원 기본 데이터 등록 중 오류 발생!')
+     throw error;
+   }) //insertMember()
+}) //click()
 
-} else { // 기존 사용자 정보를 가져온다.
-  $('.bit-new').css('display', 'none')
-  var no = location.search.substring(1).split('=')[1]
+
+} else {
+  $('.bit-new').css('display','none')
+
+  var no = (location.search.substring(1).split('=')[1])
 
   studentDao.selectOne(no,
     function(result) {
@@ -60,59 +64,68 @@ if (location.search == "") {
       fiWorking.attr('checked', (student.work == 'Y' ? true : false))
     },
     function(error) {
-      alert('학생 데이터 가져오는 중 오류 발생!')
-      throw error
-  })
+      if (error){
+        alert('학생 데이터 가져오는중 오류 발생!')
+        throw error
+      }
+    }) //selectOneStudent
 
-  $('#upd-btn').click(function() {
+
+
+
+  $('#upd-btn').click(function (){
     memberDao.update(
+    {
+      no : no,
+      name : fiName.val(),
+      tel : fiTel.val(),
+      email : fiEmail.val()
+    },
+    function(result) {
+      studentDao.update(
       {
-        "no": no,
-        "name": fiName.val(),
-        "tel": fiTel.val(),
-        "email": fiEmail.val()
+      no : no,
+      working : (fiWorking.prop('checked') ? 'Y' : 'N'),
+      schoolName : fiSchoolName.val()
       },
       function(result) {
-        studentDao.update(
-          {
-            "no": no,
-            "working": (fiWorking.prop('checked') ? 'Y' : 'N'),
-            "schoolName": fiSchoolName.val()
-          },
-          function(result) {
-            alert('변경하였습니다.')
-          },
-          function(error) {
-            alert('학생 데이터 변경 중 오류 발생!')
-            throw error;
-          })
+      alert('변경 하였습니다')
+      location.href='index.html'
       },
       function(error) {
-        alert('회원 기본 데이터 변경 중 오류 발생!')
-        throw error;
-    })
-  }) // click()
+      alert('학생 데이터 변경 중 오류 발생!')
+      throw error;
+    }) //updateStudent
+    },function(error) {
+      alert('회원 기본 데이터 변경 중 오류 발생!')
+      throw error;
+    }) //updateMember
+
+}) //click()
 
 
-  $('#del-btn').click(function() {
-    studentDao.delete(no,
-     function(result) {
+$('#del-btn').click(function() {
+  studentDao.delete(no,
+    function(result) {
       memberDao.delete(no,
-        function(result){
+        function(result) {
           location.href = 'index.html'
         },
         function(error) {
-            alert('학생 데이터 삭제 중 오류 발생!')
-            throw error;
-       })
-     },
-          function(error) {
-              alert('학생 기본 데이터 삭제 중 오류 발생!')
-              throw error;
-            })
-  }) // click()
-} // else
+          alert('학생 데이터 삭제 중 오류 발생!')
+          throw error;
+      })
+    },
+    function(error) {
+      alert('학생 기본 데이터 삭제 중 오류 발생!')
+      throw error;
+  })
+}) // click()
 
-$('#lst-btn').click(function() {
+} //else
+
+$('#lst-btn').click(function () {
   location.href = "index.html"
 })
+
+//

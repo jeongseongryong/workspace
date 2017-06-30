@@ -5,32 +5,30 @@ var viewTags = $('.bit-view'),
     fiName = $('#fi-name'),
     fiTel = $('#fi-tel'),
     fiSchoolName = $('#fi-school-name'),
-    fiWorking = $('#fi-working');
+    fiWorking = $('#fi-working')
 
 var no = 0
+
 try {
   no = location.href.split('?')[1].split('=')[1]
 } catch (err) {}
 
-if (no == 0) { // 새 학생 등록
-  viewTags.css('display', 'none')
+if (no == 0){ // 새 학생 등록
+viewTags.css('display', 'none')
 
-  $('#add-btn').click(function() {
-    $.post('add.json', {
-      'email': fiEmail.val(),
-      'name': fiName.val(),
-      'tel': fiTel.val(),
-      'schoolName': fiSchoolName.val(),
-      'working': (fiWorking.prop('checked') ? 'Y' : 'N')
-
-    }, function(result) {
-      location.href = 'index.html'
-
-    }, 'json')
-  })
+$('#add-btn').click(function() {
+  $.post('add.json', {
+    'email' : fiEmail.val(),
+    'name' : fiName.val(),
+    'tel' : fiTel.val(),
+    'schoolName' : fiSchoolName.val(),
+    'working' : (fiWorking.prop('checked') ? 'Y' : 'N')
+  }, function(result) {
+    location.href = 'index.html'
+  },'json')
+}) // add.click()
 } else { // 학생 정보 조회
   newTags.css('display', 'none')
-
   $.getJSON('detail.json', {'no': no}, function(result) {
     fiNo.text(result.mno)
     fiEmail.val(result.email)
@@ -39,20 +37,19 @@ if (no == 0) { // 새 학생 등록
     fiSchoolName.val(result.schl_nm)
     fiWorking.prop('checked', (result.work == 'Y' ? true : false))
   })
-}
 
-$('#upd-btn').click(function() {
+  $('#upd-btn').click(function() {
     $.post('update.json', {
-      'no': fiNo.text(),
-      'email': fiEmail.val(),
-      'name': fiName.val(),
-      'tel': fiTel.val(),
-      'schoolName': fiSchoolName.val(),
-      'working': (fiWorking.prop('checked') ? 'Y' : 'N')
+      'no' : fiNo.text(),
+      'email' : fiEmail.val(),
+      'name' : fiName.val(),
+      'tel' : fiTel.val(),
+      'schoolName' : fiSchoolName.val(),
+      'working' : (fiWorking.prop('checked') ? 'Y' : 'N')
     }, function(result) {
       location.href = 'index.html'
-    }, 'json')
-  })
+    },'json')
+  }) // upd click
 
 $('#del-btn').click(function() {
   $.getJSON('delete.json', {'no': no}, function(result) {
@@ -62,4 +59,5 @@ $('#del-btn').click(function() {
 
 
 
-//
+
+} // else

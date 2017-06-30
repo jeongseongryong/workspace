@@ -1,64 +1,67 @@
 /* 기존 코드에 새 서비스 추가 II
-
-
 */
+
+"use strict"
+
 const http = require('http')
 const url = require('url')
 const qs = require('querystring')
 
-function get(request, response) {
-  response.write('get 요청 처리'+'\n')
-  response.write('name=' + request.query.name + '\n')
-  response.write('age=' + request.query.age + '\n')
-  response.write('tel=' + request.query.tel + '\n')
+function get(request, response){
+  response.write('GET 요청 처리!\n')
+  response.write('name= ' + request.query.name + '\n')
+  response.write('age= ' + request.query.age + '\n')
+  response.write('tel= ' + request.query.tel + '\n')
   response.end();
-}
+} //get()
 
-function post(request, response) {
+function post(request, response){
   var buf = ''
+
   request.on('data', (data) => {
     buf += data
   })
+
   request.on('end', () => {
     var params = qs.parse(buf)
-  response.write('post 요청 처리'+'\n')
-  response.write('name=' + params.name + '\n')
-  response.write('age=' + params.age + '\n')
-  response.write('tel=' + params.tel + '\n')
-  response.end();
-})
-}
+    response.write('POST 요청 처리!\n')
+    response.write('name= ' + params.name + '\n')
+    response.write('age= ' + params.age + '\n')
+    response.write('tel= ' + params.tel + '\n')
+    response.end();
+  })
 
-function hello(request, response) {
-  response.write('안녕하세욘!')
+} // post()
+
+function hello(request, response){
+  response.write('안녕하세요!')
   response.end()
-}
-function notFound(request, response) {
-  response.write('해당 Url을 지원하지않습니다.')
+} // hello()
+
+function notFound(request, response){
+  response.write('해당 URL을 지원하지 않습니다.')
   response.end()
-}
+} //notFound()
+
 const server = http.createServer(function(request, response) {
-  var urlInfo =url.parse(request.url, true)
-  if(request.method == "GET"){
+  response.writeHead(200, {'Content-type' : 'text/plain;charset=UTF-8'})
+  var urlInfo = url.parse(request.url,true)
+  if (request.method == "GET"){
   request.query = urlInfo.query
 }
 
-response.writeHead(200, {
-  'Content-Type' : 'text/plain;charset=UTF-8'
-})
-
-  if(urlInfo.pathname == '/get.do') {
+  if (urlInfo.pathname == '/get.do'){
     get(request, response)
-} else if(urlInfo.pathname == '/post.do') {
+  } else if (urlInfo.pathname == '/post.do') {
     post(request, response)
-} else if
-  (urlInfo.pathname == '/hello.do') {
+  } else if(urlInfo.pathname == '/hello.do'){
     hello(request, response)
-} else {
-  notFound(request, response)
+  } else {
+    notFound(request, response)
 }
-  })
+
+}) //createServer
 
 server.listen(8888)
 
-console.log("서버 실행 중...")
+console.log('서버 실행중...')

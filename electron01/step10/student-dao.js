@@ -1,10 +1,10 @@
-// Stud
+// 데이터 처리를 담당하는 자바스크립트
 // => DAO(Data Access Object)
-"use strict"
 
 const studentDao = {}
 
-studentDao.selectList=function (pageNo, successFn, errorFn) {
+
+studentDao.selectList = function (pageNo, successFn, errorFn) {
   connection.query(
     'select m.mno, m.name, m.tel, m.email, s.work \
     from stud s inner join memb m on s.sno=m.mno  \
@@ -20,7 +20,7 @@ studentDao.selectList=function (pageNo, successFn, errorFn) {
   }) // connection.query()
 }
 
-studentDao.countAll= function(successFn, errorFn) {
+studentDao.countAll = function(successFn, errorFn) {
   connection.query(
     'select count(*) cnt from stud',
     function(error, results) {
@@ -32,7 +32,7 @@ studentDao.countAll= function(successFn, errorFn) {
   }) //connection.query()
 }
 
-studentDao.selectOne=function(no, successFn, errorFn) {
+studentDao.selectOne = function(no, successFn, errorFn) {
   connection.query(
     'select m.mno, m.name, m.tel, m.email, s.work, s.schl_nm \
     from stud s inner join memb m on s.sno=m.mno \
@@ -47,7 +47,7 @@ studentDao.selectOne=function(no, successFn, errorFn) {
   }) // connection.query()
 } //selectOneStudent()
 
-studentDao.insert=function(student, successFn, errorFn) {
+studentDao.insert = function(student, successFn, errorFn) {
   connection.query(
     'insert into stud(sno,work,schl_nm) values(?,?,?)',
     [ student.no, student.working, student.schoolName],
@@ -60,54 +60,10 @@ studentDao.insert=function(student, successFn, errorFn) {
   }) //connection.query()
 } //insertStudent()
 
-
-studentDao.select=function(pageNo, successFn, errorFn) {
+studentDao.update = function(student, successFn, errorFn) {
   connection.query(
-    'select m.mno, m.name, m.tel, m.email, s.work \
-    from stud s inner join memb m on s.sno=m.mno  \
-    order by m.mno asc \
-    limit ?, ?',
-    [(pageNo - 1) * 3, 3],
-    function(error, results) {
-      if (error) {
-        errorFn(error)
-      } else {
-        successFn(results)
-      }
-  }) // connection.query()
-}
-
-studentDao.countAll=function(successFn, errorFn) {
-  connection.query(
-    'select count(*) cnt from stud',
-    function(error, results) {
-      if (error) {
-        errorFn(error)
-      } else {
-        successFn(results)
-      }
-  }) //connection.query()
-}
-
-studentDao.selectOne=function(no, successFn, errorFn) {
-  connection.query(
-    'select m.mno, m.name, m.tel, m.email, s.work, s.schl_nm \
-    from stud s inner join memb m on s.sno=m.mno \
-    where s.sno=?',
-    [no],
-    function(error, results) {
-      if (error) {
-        errorFn(error)
-      } else {
-        successFn(results[0])
-      }
-  }) // connection.query()
-} //selectOneStudent()
-
-studentDao.insert=function(student, successFn, errorFn) {
-  connection.query(
-    'insert into stud(sno,work,schl_nm) values(?,?,?)',
-    [ student.no, student.working, student.schoolName],
+    'update stud set work=?, schl_nm=? where sno=?',
+    [student.working, student.schoolName, student.no],
     function(error, result) {
       if (error) {
         errorFn(error)
@@ -115,35 +71,17 @@ studentDao.insert=function(student, successFn, errorFn) {
         successFn(result)
       }
   }) //connection.query()
-} //insertStudent()
-
-
-studentDao.update=function(student, successFn, errorFn) {
-connection.query(
-  'update stud set work=?, schl_nm=? where sno=?',
-  [
-    student.no,student.working, student.schlooName,
-  ],
-  function(error, result) {
-    if (error) {
-      errorFn(error)
-    }else {
-      successFn(result)
-    }
-    alert('변경하였습니다.')
-}) //connection.query()
 } //updateStudent()
 
-
-studentDao.delete=function(no, successFn, errorFn) {
+studentDao.delete = function(student, successFn, errorFn){
 connection.query(
   'delete from stud where sno=?',
-  [no],
+  [student.no],
   function(error, result) {
     if (error) {
       errorFn(error)
-    }else {
+    } else {
       successFn(result)
     }
-})  //connection.query()
-} //deleteStudent()
+}) // connection.query
+} //deleteStudent

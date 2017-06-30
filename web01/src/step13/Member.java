@@ -10,4 +10,5 @@ public class Member {
   String detailAddr;
   String school;
   int work;
+  
 }

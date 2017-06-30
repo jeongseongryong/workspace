@@ -17,3 +17,12 @@ prompt.get(['a', 'b'], function(err, result) {
   console.log('a / b =', a / b);
   console.log('a % b =', a % b);
 });
+
+
+
+
+
+
+
+
+//

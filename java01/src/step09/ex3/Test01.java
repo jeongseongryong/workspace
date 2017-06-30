@@ -1,14 +1,15 @@
-/* 상속: 생성자 호출 
- * => 모든 생성자는 첫번째 명령으로 수퍼 클래스의 기본 생성자를 호출해야한다.
- *
- */
+/* 상속: 생성자 호출 */
+
 package step09.ex3;
 
 public class Test01 {
 
-	public static void main(String[] args) {
-		new C();
-
-	}
+  public static void main(String[] args) {
+    System.out.println("step09 ex3 Test01 실행");
+    System.out.println();
+    
+    new C();
+    
+  }
 
 }

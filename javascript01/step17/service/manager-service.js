@@ -1,6 +1,7 @@
 "use strict"
 
 module.exports = {
+
   setManagerDao(dao) {
     this.managerDao = dao
   },
@@ -13,9 +14,10 @@ module.exports = {
     this.managerDao.selectNameList(success, error)
   },//listName()
 
-  list(pageNo,pageSize, success, error) {
+
+  list(pageNo, pageSize, success, error) {
     var obj = this
-    this.managerDao.selectList(pageNo,pageSize, function(managers) {
+    this.managerDao.selectList(pageNo, pageSize, function(managers) {
       obj.managerDao.countAll(function(result) {
         success(managers, result[0].cnt)
       }, error)

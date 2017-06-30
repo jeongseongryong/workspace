@@ -1,4 +1,4 @@
-/* 미니 Express 만들기 - GET, POST 요청을 다루는 함수를 관리하는 기능 추가
+/* 미니 Express 만들기
 */
 var http = require('http')
 var url = require('url')

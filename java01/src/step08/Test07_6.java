@@ -1,61 +1,68 @@
-/*컬렉션 클래스 II : java.lang.HashSet II
- */
+/* 컬렉션(Collection) 클래스 II : java.util.HashSet IV */
 package step08;
 
-import java.sql.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Test07_6  {
+public class Test07_6{
+  
+  static class Book {
+    String title;
+    String press;
+    int page;
+    
+    public Book(String title, String press, int page) {
+      this.title = title;
+      this.press = press;
+      this.page = page;
+    } // Book(title,press,page)
+    
+    public String toString() {
+      return String.format("%s, %s, %d", title, press, page);
+    } // @Over toString()
+    
+    public int hashCode() {
+      return 1;
+    } // @Over hashCode()
+    
+    public boolean equals(Object obj) {
+      return true;
+    } // @Over equals ()
+    
+    // toString 을 이용하여 출력한다. Book의 슈퍼클래스 Object에서 tostring을 가져온다.
+    // 클래스명 해쉬코드를 출력한다.
+    // 그래서 상속받은 tostring을 오버라이딩 한다.
+  }
+  
+  public static void main(String[] args) {
+    System.out.println("step08 Test07_6 실행");
+    System.out.println();
+    
+    HashSet set = new HashSet(); 
+    
+    set.add(new Book("aaaa", "비트출판사", 100));
+    set.add(new Book("bbbb", "비트출판사", 200));
+    set.add(new Book("cccc", "비트출판사", 300));
+    set.add(new Book("dddd", "비트출판사", 400));
+    set.add(new Book("eeee", "비트출판사", 500));
+    set.add(new Book("ffff", "비트출판사", 600));
+    set.add(new Book("ffff", "비트출판사", 600));
+    
 
-	static class Book {
-		String title;
-		String press;
-		int page;
-		
-		public Book(String title, String press, int page) {
-			this.title = title;
-			this.press = press;
-			this.page = page;
-		}
-		
-		public String toString() {
-			return String.format("%s,%s,%d", title, press, page);
-		}
-		
-		public int hashCode() {		
-			return 1;
-		}
-		
-		public boolean equals(Object obj) {
-			return true;
-		}
-		
-	}
-	
-	public static void main(String[] args) {
-	HashSet Set = new HashSet();
+    Iterator iterator = set.iterator();  
+    while(iterator.hasNext()){
+      System.out.println(iterator.next());
+    }
+    System.out.println("-----------------------");
+    
+    System.out.println(new Book("ffff", "비트출판사", 600).hashCode());
+    System.out.println(new Book("ffff", "비트출판사", 600).hashCode());
+    System.out.println(new Book("ffff", "비트출판사", 600).hashCode());
 
-	Set.add(new Book("aaaa", "비트 출판사", 100));
-	Set.add(new Book("bbbb", "비트 출판사", 200));
-	Set.add(new Book("cccc", "비트 출판사", 300));
-	Set.add(new Book("dddd", "비트 출판사", 400));
-	Set.add(new Book("eeee", "비트 출판사", 500));
-	Set.add(new Book("ffff", "비트 출판사", 600));
-	Set.add(new Book("ffff", "비트 출판사", 600));
-	
+  } // main
+  
+  
+}
 
-	
-	Iterator iterator = Set.iterator();
-	while (iterator.hasNext()) {
-		System.out.println(iterator.next());
-	}
-		System.out.println("----------------------");
-		
-		System.out.println(new Book("ffff", "비트 출판사", 600).hashCode());
-		System.out.println(new Book("ffff", "비트 출판사", 600).hashCode());
-		System.out.println(new Book("ffff", "비트 출판사", 600).hashCode());
-	}	
-}	
 
 

@@ -1,10 +1,4 @@
-/* 서블릿끼리 값을 공유하는 방법
- * =>저장소를 이용하여 값을 공유 할 수 있다.
- * 1)ServletContext
- * 2)HttpSession
- * 3)ServletRequest
- * 4)PageContext
- */
+/* 서브릿 끼리 값을 공유하는 방법 */
 package step06;
 
 import java.io.IOException;
@@ -17,25 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns="/step06/Servlet02")
-public class Servlet02  extends HttpServlet {
+public class Servlet02 extends HttpServlet {
+
   private static final long serialVersionUID = 1L;
 
   @Override
   public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    // 저장된 값 꺼내기
-   String value =(String)req.getAttribute("v1");
-   
-   res.setContentType("text/plain;charset=UTF-8");
-   PrintWriter out = res.getWriter();
-   out.println(value);
-  }
+    
+    String value = (String) req.getAttribute("v1");
+    
+    res.setContentType("text/plain);charset=UTF-8");
+    PrintWriter out = res.getWriter();
+    
+    out.println(value);
+    
+    } // service()
+    
 }
-
-
-
-
-
-
-
-
-
